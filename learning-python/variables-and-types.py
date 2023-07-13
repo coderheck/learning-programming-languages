@@ -24,3 +24,4 @@ if stringAfterConcat == stringToConcat1 + " " + stringToConcat2 + " " + stringTo
     print("string concatenation in python is weird")
 if isinstance(floatNum1, float) and isinstance(floatNum2, float):
     print("%f" % floatNum1, "and %f are floating point numbers" % floatNum2)
+print("you did good, gg!", "🔥")
