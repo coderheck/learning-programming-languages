@@ -16,3 +16,11 @@ stringToConcat3 = "is like this"
 stringAfterConcat = stringToConcat1 + " " + stringToConcat2 + " " + stringToConcat3
 print(stringAfterConcat)
 print(stringToConcat1 + " " + stringToConcat2 + " " + stringToConcat3)
+
+# so this is how you make comments
+# final section
+
+if stringAfterConcat == stringToConcat1 + " " + stringToConcat2 + " " + stringToConcat3:
+    print("string concatenation in python is weird")
+if isinstance(floatNum1, float) and isinstance(floatNum2, float):
+    print("%f" % floatNum1, "and %f are floating point numbers" % floatNum2)
