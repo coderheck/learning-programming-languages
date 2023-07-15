@@ -11,4 +11,7 @@ lotsOfData = ("guy named loxzy", 90812, 1.28767289)
 stringToPrint = "data: %s, %d, %f"
 print(stringToPrint % lotsOfData)
 
+print("the length of string \"stringToPrint\": %d" % len(stringToPrint)) # len() counts special characters, including spaces
+print("number of elements in list \"lotsOfData\": %d" % len(lotsOfData)) # len() in this case counts the number of elements in the list (which is 3 for this list)
+
 # end
