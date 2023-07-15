@@ -11,6 +11,7 @@ while countnum < 2:
         countnum += 1
     if countnum == 1:
         printAnythingToDiffLines([1, 4, 7])
+        countnum += 1
     if countnum == 2:
         printAnythingToDiffLines(["thing idk", countnum, "now it ends"])
         break
