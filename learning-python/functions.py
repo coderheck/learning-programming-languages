@@ -2,8 +2,8 @@ def printAnythingToDiffLines(arg):
     if isinstance(arg, list):
         for thing in arg:
             print(thing)
-            break
-    print(arg)
+    else:
+        print(arg)
 
 countnum = 0
 while countnum < 2:
