@@ -6,6 +6,8 @@ int n;
 
 int main () {
     cin >> n;
-    cout << pow(n, 2);
+    if (n == 11) {
+        cout << "YES";
+    }else{cout << "NO";}
     return 0;
 }
