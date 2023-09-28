@@ -7,6 +7,7 @@ const int phibatbuoc = 25000;
 ll phutgoi;
 
 int main () {
+    cout << "cuoc mac dinh: 25000d, nhap phut goi: ";
     cin >> phutgoi;
     ll cuoctra;
     if (phutgoi <= 50) {
@@ -18,6 +19,6 @@ int main () {
     }else if (phutgoi >= 200) {
         cuoctra = phibatbuoc + 600 * 50 + 400 * 100 + 200 * (phutgoi - 100);
     }
-    cout << cuoctra;
+    cout << "cuoc can tra: " << cuoctra;
     return 0;
 }
