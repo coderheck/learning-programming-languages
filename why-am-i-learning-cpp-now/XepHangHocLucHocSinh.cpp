@@ -2,11 +2,11 @@
 #define ll long long
 using namespace std;
 
-ll dkt, dgk, dck;
+float dkt, dgk, dck;
 
 int main () {
     cin >> dkt >> dgk >> dck;
-    ll dtb = (dkt + dgk + dck) / 3;
+    float dtb = (dkt + dgk + dck) / 3;
     if (dtb >= 9) {
         cout << "xep hang A";
     }else if (dtb >= 7) {
@@ -14,5 +14,6 @@ int main () {
     }else if (dtb >= 5) {
         cout << "xep hang C";
     }else{cout << "xep hang F";}
+    cout << endl << "dtb: " << dtb;
     return 0;
 }
