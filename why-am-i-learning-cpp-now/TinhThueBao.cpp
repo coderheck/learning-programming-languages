@@ -13,8 +13,9 @@ int main () {
         cuoctra = phibatbuoc + 600 * phutgoi;
     }else if (phutgoi <= 150) {
         cuoctra = phibatbuoc + 600 * 50 + 400 * (phutgoi - 50);
-    }
-    else if (phutgoi >= 200) {
+    }else if (phutgoi < 200) {
+        cuoctra = phibatbuoc + 600 * 50 + 400 * (phutgoi - 50);
+    }else if (phutgoi >= 200) {
         cuoctra = phibatbuoc + 600 * 50 + 400 * 100 + 200 * (phutgoi - 150);
     }
     cout << cuoctra;
