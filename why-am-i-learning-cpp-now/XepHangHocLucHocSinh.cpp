@@ -14,6 +14,6 @@ int main () {
     }else if (dtb >= 5) {
         cout << "xep hang C";
     }else{cout << "xep hang F";}
-    cout << endl << "dtb: " << dtb;
+    cout << endl << "dtb: " << setprecision(5) << dtb;
     return 0;
 }
