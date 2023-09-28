@@ -1,11 +1,9 @@
 #include <iostream>
-#include <math.h>
 using namespace std;
 
-int n;
-
 int main () {
+    int n;
     cin >> n;
-    cout << pow(n, 2);
+    cout << n * n;
     return 0;
 }
