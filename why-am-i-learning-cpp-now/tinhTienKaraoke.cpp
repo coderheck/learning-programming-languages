@@ -13,12 +13,12 @@ int main () {
     if (gioBatDau >= 8 and gioKetThuc <= 24) {
         soGioThue = gioKetThuc - gioBatDau;
         if (soGioThue <= 3) {
-            tienTra = 30000 * 3;
+            tienTra = 30000 * soGioThue;
         }else if (soGioThue > 3) {
             tienTra = 30000 * 3 + (30000 * (soGioThue - 3)) * 7/10;
         }
         if (gioBatDau >= 8 and gioKetThuc <= 17) {
-            tienTra = tienTra - tienTra * 1/10;
+            tienTra = tienTra /10 * 9;
         }
         cout << "so tien phai tra: " << tienTra;
     }else{cout << "gio hat khong hop le!";}
