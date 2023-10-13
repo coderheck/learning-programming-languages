@@ -2,11 +2,13 @@
 using namespace std;
 
 int main(){
-    long long n;
+    long long int n, sum;
+    sum = 0;
     cin >> n;
-    for (long long iter = n; iter>=0; iter--){
-        if (n%iter == 0){cout<<iter<<" " << "-" << iter << " ";}
+    for (long long int iter = n; iter>=1; iter--){
+        sum += iter;
     }
+    cout << sum;
     return 0;
 }
 
