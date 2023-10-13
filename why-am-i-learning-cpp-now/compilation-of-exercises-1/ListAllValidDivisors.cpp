@@ -9,5 +9,3 @@ int main(){
     }
     return 0;
 }
-
-// default snippet for all later code
