@@ -7,7 +7,7 @@ int main(){
     cin>>n;
     mul = 1;
     for (int i1 = 1; i1 <= n; i1++){
-        for (int i2 = i1; i1 >= 1; i2--){
+        for (int i2 = i1-1; i1 >= 1; i2--){
             i1 = i1 * i2;
         }
         mul = mul * i1;
