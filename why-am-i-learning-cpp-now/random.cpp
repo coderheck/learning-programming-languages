@@ -1,18 +1,18 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main(){
-    float n, mul;
+    float n, tich, tong;
     cin>>n;
-    mul = 1;
-    for (int i1 = 1; i1 <= n; i1++){
-        for (int i2 = i1-1; i1 >= 1; i2--){
-            i1 = i1 * i2;
-        }
-        mul = mul * i1;
+    tong = 0;
+    tich = 1;
+    for (int i = 1; i <= n; i++){
+        tich = tich * i;
+        tong = tong + tich;
     }
-    cout<<mul;
+    cout<<setprecision(2)<<tong;
     return 0;
 }
 
