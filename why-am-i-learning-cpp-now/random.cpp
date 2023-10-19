@@ -1,18 +1,17 @@
 #include <iostream>
-#include <cmath>
+#include <math.h>
 #include <iomanip>
 using namespace std;
 
 int main(){
-    float n, tich, tong;
-    cin>>n;
+    float x, n, tong;
+    cout<<"nhap x va n: ";
+    cin>>x>>n;
     tong = 0;
-    tich = 1;
-    for (int i = 1; i <= n; i++){
-        tich = tich * i;
-        tong = tong + tich;
+    for (int i = 0; i <= n; i++){
+        tong = tong + pow(x, (2*i)+1);
     }
-    cout<<setprecision(2)<<tong;
+    cout<<tong;
     return 0;
 }
 
