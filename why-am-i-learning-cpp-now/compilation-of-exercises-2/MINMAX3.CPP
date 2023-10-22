@@ -2,12 +2,8 @@
 #include <math.h>
 using namespace std;
 
-int findMax(){
-    return 0;
-}
-
 int main(){
-    float a, b, c, d, min, max;
+    long long a, b, c, d, min, max;
     cin >> a >> b >> c >> d;
     min = max = a;
     float t[4] = {a, b, c, d};
