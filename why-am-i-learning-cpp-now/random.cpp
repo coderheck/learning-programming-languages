@@ -1,17 +1,9 @@
 #include <iostream>
-#include <math.h>
-#include <iomanip>
+#define ll long long
+#define ull unsigned long long
 using namespace std;
 
 int main(){
-    float x, n, tong;
-    cout<<"nhap x va n: ";
-    cin>>x>>n;
-    tong = 0;
-    for (int i = 0; i <= n; i++){
-        tong = tong + pow(x, (2*i)+1);
-    }
-    cout<<tong;
     return 0;
 }
 
