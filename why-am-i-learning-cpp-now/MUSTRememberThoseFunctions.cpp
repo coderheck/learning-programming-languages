@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 bool isPrime(int n){
@@ -15,6 +16,9 @@ long long digitsSum(long long arg){
         n /= 10;
     }
     return sum;
+}
+bool isSquare(long long a){
+    if (floor(sqrt(a))==sqrt(a) and ceil(sqrt(a))==sqrt(a)){return true;}else{return false;}
 }
 int main(){
     return 0;
