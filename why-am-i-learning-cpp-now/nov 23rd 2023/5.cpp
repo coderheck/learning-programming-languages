@@ -9,10 +9,14 @@ long long digitsSum(long long arg){
     }
     return sum;
 }
+bool isSquare(long long a){
+    a=a;
+    if (floor(sqrt(a))==sqrt(a) and ceil(sqrt(a))==sqrt(a)){return true;}else{return false;}
+}
 int main(){
     long long n;
     cin>>n;
     long long ds=digitsSum(n);
     long long sqrtres=sqrt(ds);
-    if (sqrtres*sqrtres==n){cout<<ds;}
+    if (isSquare(ds)==true){cout<<ds;}else{cout<<ds%11;}
 }
