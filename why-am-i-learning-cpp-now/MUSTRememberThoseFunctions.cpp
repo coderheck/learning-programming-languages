@@ -14,6 +14,7 @@ long long digitsSum(long long arg){
         sum += n%10;
         n /= 10;
     }
+    return sum;
 }
 int main(){
     return 0;
