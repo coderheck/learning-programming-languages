@@ -9,11 +9,9 @@ bool isPrime(int n){
         if (n % i == 0){return false;}
     return true;
 }
-
 int main(){
     long long n;
     cin>>n;
-    for(long long m=1;m<=n;m++){
-        if(isPrime(m)==true){cout<<m<<" ";}
-    }
+    for(long long n1=n;n1>=n;n1++){if(isPrime(n1)==true){cout<<n1;break;}}
+    return 0;
 }

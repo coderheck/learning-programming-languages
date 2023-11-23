@@ -1,10 +1,9 @@
-#include <iostream>
-#include <math.h>
+#include <bits/stdc++.h>
 #define ll long long
 using namespace std;
 
 int main(){
-    int a, b, c, d;
+    ll a, b, c, d;
     d=0;
     cin>>a>>b>>c;
     for (int a1=1;a1<=c-1;a++){
