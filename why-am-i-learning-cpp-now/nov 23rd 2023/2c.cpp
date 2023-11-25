@@ -12,13 +12,10 @@ bool isPrime(int n){
 int main(){
     long long n;
     cin>>n;
-    for(long long m=3;m<=n;m++){
-        if(isPrime(m)==true){
-            for(long long m1=m+1;m1>=m;m++){
-                if(isPrime(m1)==true){
-                    cout<<m<<" "<<m1<<endl;break;
-                }
-            }
+    for(long long n1=3;n1<=n;n1++){
+        for(long long n2=n1+1;n2<=n;n2++){
+            if (isPrime(n1)==true and isPrime(n2)==true and n1 < n2){cout<<n1<<" "<<n2<<endl;break;}
         }continue;
     }
 }
+//yay
