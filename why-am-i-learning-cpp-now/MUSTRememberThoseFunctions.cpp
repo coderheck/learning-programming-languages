@@ -20,6 +20,15 @@ long long digitsSum(long long arg){
 bool isSquare(long long a){
     if (floor(sqrt(a))==sqrt(a) and ceil(sqrt(a))==sqrt(a)){return true;}else{return false;}
 }
+long long reverseDigits(long long arg){
+    long long n=arg, tmp, retNum=0;
+    while(n > 0){
+        tmp = n % 10;
+        retNum = retNum * 10 + tmp;
+        n = n / 10;
+    }
+    cout << retNum;
+}
 int main(){
     return 0;
 }
