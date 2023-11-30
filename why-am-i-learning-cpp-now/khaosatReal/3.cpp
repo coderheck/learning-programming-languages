@@ -1,21 +1,26 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
-
+long long tien,nam,mot,hai,haichuc,namchuc;
 int main(){
-    long long sotien, motngan, haingan, namngan, haimuoingan, nammuoingan, tongsoto=5; //what
-    for (long long motngan1=0;motngan1<=sotien;sotien++){
-        for (long long haingan1=0;motngan1<=sotien;sotien++){
-            for (long long namngan1=0;motngan1<=sotien;sotien++){
-                for (long long haimuoingan1=0;motngan1<=sotien;sotien++){
-                    for (long long nammuoingan1=0;motngan1<=sotien;sotien++){
-                        if ((1*motngan1) + (2*haingan1) + (5*namngan1) + (20*haimuoingan1) + (50*nammuoingan1) == sotien && motngan1+haingan1+namngan1+haimuoingan1+nammuoingan1 < tongsoto){
-                            
-                        }
-                    }
-                }
-            }
-        }
+    cin >> tien;
+    if (tien / 50 >= 1){
+        namchuc = tien/50;
+        cout << namchuc << " to 50" << endl;
     }
-    return 0;
+    if ((tien - namchuc) / 20 >= 1){
+        haichuc = (tien - (namchuc*50)) / 20;
+        cout << haichuc << " to 20";
+    }
+    if ((tien - (namchuc*50) - (haichuc*20)) / 5 >= 1){
+        nam = (tien - (namchuc*50) - (haichuc*20)) / 5;
+        cout << nam << " to 5" << endl;
+    }
+    if ((tien - (namchuc*50) - (haichuc*20) - (nam*5)) / 2 >= 1){
+        hai = (tien - (namchuc*50) - (haichuc*20) - (nam*5)) / 2;
+        cout << hai << "to 2" << endl;
+    }
+    if ((tien - (namchuc*50) - (haichuc*20) - (nam*5) - (hai*2)) / 1 >= 1){
+        mot = (tien - (namchuc*50) - (haichuc*20) - (nam*5) - (hai*2)) / 1;
+        cout << mot << " to 1";
+    }
 }
