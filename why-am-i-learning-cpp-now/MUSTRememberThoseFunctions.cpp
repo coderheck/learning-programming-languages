@@ -10,7 +10,7 @@ bool isPrime(int n){
     return true;
 }
 long long digitsSum(long long arg){
-    int n,sum;n=arg;sum=0;
+    int n=arg,sum=0;
     while(n != 0) {
         sum += n%10;
         n /= 10;
