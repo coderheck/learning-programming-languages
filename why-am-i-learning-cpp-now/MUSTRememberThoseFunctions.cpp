@@ -27,7 +27,7 @@ long long reverseDigits(long long arg){
         retNum = retNum * 10 + tmp;
         n = n / 10;
     }
-    cout << retNum;
+    return retNum;
 }
 int main(){
     return 0;
