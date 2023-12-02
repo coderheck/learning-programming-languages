@@ -7,11 +7,16 @@ using namespace std;
 class lowtiergod {
     public:
         string message;
+        string now();
 };
+
+string lowtiergod::now(){
+    return "NOW!";
+}
 
 int main(){
     lowtiergod sayer;
-    sayer.message = "kill yourself";
-    cout<<sayer.message;
+    sayer.message = "kill yourself\n";
+    cout<<sayer.message<<sayer.now();
     return 0;
 }
