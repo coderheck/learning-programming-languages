@@ -1,16 +1,14 @@
 #include "iostream"
-#include "string"
+#include "iomanip"
 using namespace std;
 
 int main(){
-    int n;
-    cin>>n;
-    // do while structure
-    // syntax:
+    float i,sum;
+    i=sum=1;
     do {
-        //whatever
-        if (n<0){cout<<"nhap lai sao cho n > 0"<<endl;cin>>n;}
+        sum=sum+1.0/i;i++;
     }
-    while (/*condition*/n<0);
+    while (1.0/i>=1e-4);
+    cout<<setprecision(4)<<sum;
     return 0;
 }
