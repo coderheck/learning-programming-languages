@@ -2,12 +2,13 @@
 #include <cmath>
 using namespace std;
 
-bool isPrime(int n){
-    if (n <= 1)
-        return false;
-    for (int i=2;i<=n/2;i++)
-        if (n % i == 0){return false;}
-    return true;
+bool isPrime(long long n){
+    bool isprime=true;
+    if(n<=1){isprime=false;}
+    for(long long i=2;i<=n/2;i++){
+        if(n%i==0){isprime=false;}
+    }
+    return isprime;
 }
 long long digitsSum(long long arg){
     int n=arg,sum=0;
