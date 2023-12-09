@@ -34,10 +34,6 @@ int main(){
     for(int i=0; i<a; i++){
         cin>>b[i];
     }
-    
-    /*for (int i=0; i<a; i++){
-        cout<<b[i]<<" "<<endl;sum+=b[i];
-    }*/
 
     cout<<endl<<"so chan:"<<endl;
     for (int i=0; i<a; i++){
