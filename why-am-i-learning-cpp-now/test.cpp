@@ -1,31 +1,31 @@
-#include"iostream"
-#include"cmath"
-bool isSquare(long long a){
-    if (floor(sqrt(a))==sqrt(a) and ceil(sqrt(a))==sqrt(a)){return true;}else{return false;}
-}
-bool isPrime(long long n){
-    bool isprime=true;
-    if(n<=1){isprime=false;}
+#include"bits/stdc++.h"
+using namespace std;
+bool nguyento(long long n){
+    bool nt=true;
+    if(n<=1){nt=false;}
     for(long long i=2;i<=n/2;i++){
-        if(n%i==0){isprime=false;}
+        if(n%i==0){nt=false;}
     }
-    return isprime;
+    return nt;
 }
-void hello1(int so1, int so2){
-    std::cout<<"xinchao";
-    if (isSquare(so1)==true){std::cout<<std::endl<<"nice";}
-    std::cout<<std::endl<<so1+so2;
-    return;
+bool chinhphuong(long long n){
+    bool cp;
+    if( floor(sqrt(n)) == ceil(sqrt(n)) ){cp=true;}else{cp=false;}
+    return cp;
 }
-long long hello2(int a){
-    return a*a;
+bool hoanhao(long long arg){
+    long long tong=0; bool hh;
+    for (long long i=1;i<arg;i++){
+        if (arg%i==0){tong+=i;}
+    }
+    if(arg==tong){hh=true;}else{hh=false;}
+    return hh;
 }
-
 int main(){
-    int a, b, c, d;
-    std::cin>>a>>b>>c;
-    hello1(a,b);
-    std::cout<<std::endl<<hello2(c);
-    std::cout<<std::endl<<isPrime(d);
+    cout<<"thu tu: nguyen to -> chinh phuong -> hoan hao: ";
+    int a, b, c;
+    cin>>a>>b>>c;
+    if(nguyento(a)==true){cout<<a<<" la so nguyen to"<<endl;}else{cout<<a<<"khong la so nguyen to"<<endl;}
+    if(chinhphuong(b)==true){cout<<b<<" la so chinh phuong"<<endl;}else{cout<<b<<" khong la so chinh phuong"<<endl;}
+    if(hoanhao(c)==true){cout<<c<<" la so hoan hao";}else{cout<<c<<" khong la so hoan hao";}
 }
-
