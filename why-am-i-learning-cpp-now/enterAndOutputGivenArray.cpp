@@ -1,30 +1,30 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-bool isPerfect(long long arg){
+bool hoanhao(long long arg){
     long long sum=0;
-    bool isperfect;
+    bool hh;
     for (long long i=1;i<arg;i++){
         if (arg%i==0){sum+=i;}
     }
-    if(arg==sum){isperfect=true;}else{isperfect=false;}
-    return isperfect;
+    if(arg==sum){hh=true;}else{hh=false;}
+    return hh;
 }
 
-bool isSquare(long long a){
-    bool issquare=true;
-    float sqrtofarg=sqrt(a);
-    if(ceil(sqrtofarg) == floor(sqrtofarg) == sqrtofarg){issquare=true;}else{issquare=false;}
-    return issquare;
+bool chinhphuong(long long a){
+    bool ch=true;
+    float sq=sqrt(a);
+    if(ceil(sq) != floor(sq)){ch=false;}
+    return ch;
 }
 
-bool isPrime(long long n){
-    bool isprime=true;
-    if(n<=1){isprime=false;}
+bool nguyento(long long n){
+    bool nt=true;
+    if(n<=1){nt=false;}
     for(long long i=2;i<=n/2;i++){
-        if(n%i==0){isprime=false;}
+        if(n%i==0){nt=false;}
     }
-    return isprime;
+    return nt;
 }
 
 int main(){
@@ -69,19 +69,19 @@ int main(){
 
     cout<<endl<<"so hoan hao:"<<endl;
     for (int i=0; i<a; i++){
-        if(isPerfect(b[i])==true){cout<<b[i]<<" ";}
+        if(hoanhao(b[i])==true){cout<<b[i]<<" ";}
     }
 
     cout<<endl<<"so chinh phuong:"<<endl;
     for (int i=0; i<a; i++){
-        if(isSquare(b[a])==true){cout<<b[i]<<" ";}
+        if(chinhphuong(b[i])==true){cout<<b[i]<<" ";}
     }
 
     cout<<endl<<"so nguyen to:"<<endl;
     for (int i=0; i<a; i++){
-        if(isPrime(b[i])==true){cout<<b[i]<<" ";}
+        if(nguyento(b[i])==true){cout<<b[i]<<" ";}
     }
     return 0;
 }
 
-//test with: 6 6 1 7 4 49 23 (copy & paste)
+//test with: 7 6 1 7 4 49 23 9 (copy & paste)
