@@ -19,7 +19,7 @@ int main(){
                 if(nguyento(tmp)==false){super=false;}
                 tmp/=10;
             }
-            if(super==true){cout<<a[i];}
+            if(super==true){cout<<a[i]<<" ";}
         }
     }
 }

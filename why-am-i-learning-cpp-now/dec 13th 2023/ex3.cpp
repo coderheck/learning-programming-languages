@@ -10,6 +10,6 @@ int main(){
         cin>>a[i];
     }
     for(int i=0;i<n;i++){
-        if(chinhphuong(a[i])==true){cout<<a[i];}
+        if(chinhphuong(a[i])==true){cout<<a[i]<<" ";}
     }
 }
