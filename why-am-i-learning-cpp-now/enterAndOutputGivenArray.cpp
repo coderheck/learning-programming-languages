@@ -1,5 +1,11 @@
-#include "bits/stdc++.h"
+#include "iostream"
+#include "cmath"
+#include "algorithm"
 using namespace std;
+
+bool compare(const int a, const int b){
+   return a > b;
+}
 
 bool hoanhao(long long arg){
     long long sum=0;
@@ -53,7 +59,7 @@ int main(){
     // sap xep bien
     for (int i=0; i<a; i++){
         for (int o=i; o<a; o++){
-            if (b[i]>b[o]){swap(b[i], b[o]);}
+            if (b[i]>b[o]){swap(b[i], b[o]);} // tuong duong sort(b, b+a);
         }
     }
 
