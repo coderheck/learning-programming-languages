@@ -27,11 +27,11 @@ int main(){
     for(int i=0;i<n/2;i++){if(a[i]!=a[n-i-1]){dx=false;}}
     if(dx==true){cout<<"doi xung";}else{cout<<"khong doi xung";}cout<<endl<<endl;
     for(int i=0;i<n;i++){if(nguyento(a[i])==true){p1+=1;cout<<a[i]<<" ";}}
-    cout<<endl<<"co: "<<p1<<" phan tu la so nguyen to"<<endl<<endl;
+    cout<<endl<<"co "<<p1<<" phan tu la so nguyen to"<<endl<<endl;
     for(int i=0;i<n;i++){if(chinhphuong(a[i])==true){s+=1;cout<<a[i]<<" ";}}
-    cout<<endl<<"co: "<<s<<" phan tu la so chinh phuong"<<endl<<endl;
+    cout<<endl<<"co "<<s<<" phan tu la so chinh phuong"<<endl<<endl;
     for(int i=0;i<n;i++){if(hoanhao(a[i])==true){p2+=1;cout<<a[i]<<" ";}}
-    cout<<endl<<"co: "<<p2<<" phan tu la so hoan hao";
+    cout<<endl<<"co "<<p2<<" phan tu la so hoan hao";
 }
 
 /* test:

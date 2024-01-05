@@ -21,7 +21,7 @@ bool isSquare(long long a){
 }
 long long reverseDigits(long long arg){
     long long n=arg,tmp,returnNumber=0;
-    while(n>0){tmp=n%10;returnNumber=returnNumber*10+tmp;n/=10;}
+    while(n>0){tmp=n%10;returnNumber=returnNumber*10+tmp;n/=10; }
     return returnNumber;
 }
 bool isPerfect(long long arg){
@@ -31,5 +31,7 @@ bool isPerfect(long long arg){
     return isperfect;
 }
 int main(){
+    int x; std::cin>>x;
+    std::cout<<reverseDigits(x);
     return 0;
 }
