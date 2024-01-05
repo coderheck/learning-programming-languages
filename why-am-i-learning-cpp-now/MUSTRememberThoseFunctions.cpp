@@ -20,9 +20,9 @@ bool isSquare(long long a){
     return s;
 }
 long long reverseDigits(long long arg){
-    long long n=arg,tmp,returnNumber=0;
-    while(n>0){tmp=n%10;returnNumber=returnNumber*10+tmp;n/=10; }
-    return returnNumber;
+    long long n=arg,digit,rev=0;
+    while(n>0){rev*=10;digit=n%10;rev+=digit;n/=10;}
+    return rev;
 }
 bool isPerfect(long long arg){
     long long sum=0;bool isperfect;
