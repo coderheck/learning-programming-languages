@@ -1,9 +1,9 @@
 #include"bits/stdc++.h"
 using namespace std;
 int main(){
-    unsigned long long a,b=1;cin>>a;
-    for(long long i=1;i<=a;i++){b*=i;}
-    cout<<b<<"\n";
-    while(b>=10){b/=10;}
-    cout<<b;
+    long long a,tz=0;cin>>a;
+    if(a<0){tz=-1;}else{
+        for(int i=5;a/i>=1;i*=5){tz+=a/i;}
+    }
+    cout<<"\n"<<tz;
 }
