@@ -9,7 +9,7 @@ int main(){
         if(s[i]==' '){s[i]='\r';}else break;
     }
     for(int i=0;i<=s.length();i++){
-        if(s[i]==' ' && s[i] == s[i+1]){
+        if(s[i]==' '&&s[i]==s[i+1]){
             for(int j=i;j<=s.length();j++){
                 s[j] = s[j+1];
             }
