@@ -34,6 +34,11 @@ int gcd(int a, int b){
     while(a!=b){if(a>b){a-=b;}else{b-=a;}}
     return a;
 }
+int countDigits(int a){
+    int b=a,c=0;
+    while(b>0){b/=10;c++;}
+    return c;
+}
 int main(){
     int x; std::cin>>x;
     std::cout<<reverseDigits(x);
