@@ -31,8 +31,9 @@ bool isPerfect(long long arg){
     return isperfect;
 }
 int gcd(int a, int b){
-    while(a!=b){if(a>b){a-=b;}else{b-=a;}}
-    return a;
+    int c=a,d=b;
+    while(c!=d){if(c>d){c-=d;}else{d-=c;}}
+    return c;
 }
 int countDigits(int a){
     int b=a,c=0;
