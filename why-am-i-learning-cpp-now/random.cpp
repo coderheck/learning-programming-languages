@@ -1,10 +1,15 @@
 #include <iostream>
-#define ll long long
-#define ull unsigned long long
-using namespace std;
 
-int main(){
+int main() {
+    std::cout << "  ______   _______  _______  _        _______  _        _______ " << std::endl;
+    std::cout << " /      \\ /       \\/       \\| \\    /\\/       \\| \\    /\\/       \\" << std::endl;
+    std::cout << "/$$$$$$  |$$$$$$$  |$$$$$$$  | \\  / /$$$$$$$  | \\  / / $$$$$$$  |" << std::endl;
+    std::cout << "$$ |  $$ |$$ |  $$ |$$ |  $$ |  \\/  $$ |  $$ |  \\/ /  $$ |  $$ |" << std::endl;
+    std::cout << "$$ |  $$ |$$ |  $$ |$$ |  $$ |      $$ |  $$ |      $$ |  $$ |" << std::endl;
+    std::cout << "$$ |  $$ |$$ |  $$ |$$ |  $$ |      $$ |  $$ |      $$ |  $$ |" << std::endl;
+    std::cout << "$$ |  $$ |$$ |  $$ |$$ |__$$ |      $$ |__$$ |      $$ |__$$ |" << std::endl;
+    std::cout << "$$ |  $$ |$$ |  $$ |$$    $$/       $$    $$/       $$    $$/ " << std::endl;
+    std::cout << " $$$$$$/ $$/   $$/ $$$$$$$/         $$$$$$/         $$$$$$/  " << std::endl;
+
     return 0;
 }
-
-// default snippet for all later code
