@@ -5,7 +5,7 @@ int main(){
     char c='c';
     while(c!='\n'){
         c=getchar();
-        if(c==' '){demtu++;}else{demkitu++;}
+        if(c!=' '){demkitu++;}else{demtu++;}
     }
-    cout<<"so tu: "<<"\n"<<"so ki tu: "<<demkitu;
+    cout<<"so tu: "<<"\n"<<"so ki tu: "<<demkitu-1;
 }
