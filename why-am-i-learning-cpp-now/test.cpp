@@ -1,12 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
-    int n; cin>>n;
-    if(n-1<=200&&n%2==0){cout<<300*(n/2);}
-    if(n-1<=200&&n%2!=0){cout<<300*((n-1)/2)+250;}
-    if(n-1>200&&n%2==0){cout<<280*(n/2);}
-    if(n-1>200&&n%2!=0){cout<<280*((n-1)/2)+250;}
+bool prime(int n){
+    bool p=true;
+    if(n<=1){p=false;}
+    for(int i=2;i<=n/2;i++){if(n%i==0){p=false;}}
+    return p;
 }
-int test(){
-    
+bool perfect(int n){
+    bool p=true;long long s=0;
+    for(int i=1;i<n;i++){if(n%i==0){s+=i;}}
+    if(s!=n){p=false;}
+    return p;
+}
+int main(){
+    int x;cin>>x;
+    if(prime(x)==true){cout<<"YES";}else{cout<<"NO";}
 }

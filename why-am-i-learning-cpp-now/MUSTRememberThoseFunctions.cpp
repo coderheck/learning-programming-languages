@@ -42,6 +42,6 @@ int countDigits(int a){
 }
 int main(){
     int x; std::cin>>x;
-    std::cout<<reverseDigits(x);
+    std::cout<<isPrime(2);
     return 0;
 }
