@@ -1,7 +1,10 @@
-#include"bits/stdc++.h"
+#include"iostream"
+#include"iomanip"
+#include"math.h"
 #include"numbers"
-using namespace std;
-const string pi=to_string(3.141592653589793238462643383279502884197169399375105820974944);
+constexpr long double pi(){
+    return atan(1)*4;
+}
 int main(){
-    cout<<pi;
+    std::cout<<std::fixed<<std::setprecision(48)<<pi();
 }
