@@ -1,7 +1,7 @@
 #include"bits/stdc++.h"
 using namespace std;
 float heron(int a, int b, int c){
-    float s=(a+b+c)/2.0; // chia cho 2.0 moi dc 🤯
+    float s=(a+b+c)/2.0; // 2.0 🤯
     return sqrt(s*(s-a)*(s-b)*(s-c));
 }
 int main(){
