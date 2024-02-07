@@ -40,6 +40,10 @@ int countDigits(int a){
     while(b>0){b/=10;c++;}
     return c;
 }
+float heron(int a, int b, int c){
+    float s=(a+b+c)/2.0; // chia cho 2.0 moi dc 🤯
+    return sqrt(s*(s-a)*(s-b)*(s-c));
+}
 int main(){
     int x; std::cin>>x;
     std::cout<<isPrime(2);
