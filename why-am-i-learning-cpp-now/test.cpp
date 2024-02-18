@@ -1,18 +1,14 @@
-#include <bits/stdc++.h>
+#include"iostream"
 using namespace std;
-bool prime(int n){
-    bool p=true;
-    if(n<=1){p=false;}
-    for(int i=2;i<=n/2;i++){if(n%i==0){p=false;}}
-    return p;
-}
-bool perfect(int n){
-    bool p=true;long long s=0;
-    for(int i=1;i<n;i++){if(n%i==0){s+=i;}}
-    if(s!=n){p=false;}
-    return p;
+bool nguyento(int n){
+    bool nt=true;
+    if(n<=1){nt=false;}
+    for(int i=2;i<=n/2;i++){if(n%i==0){nt=false;}}
+    return nt;
 }
 int main(){
-    int x;cin>>x;
-    if(prime(x)==true){cout<<"YES";}else{cout<<"NO";}
+    int n;
+    while(true){
+        cin>>n;if(nguyento(n)==true){cout<<"nguyen to"<<"\n";}else if(nguyento(n)==false){cout<<"so phuc"<<"\n";}else if(nguyento(n)==0){cout<<"so 0"<<"\n";}else if(nguyento(n)==1){cout<<"so 1"<<"\n";}
+    }
 }
