@@ -35,6 +35,11 @@ int gcd(int a, int b){
     while(c!=d){if(c>d){c-=d;}else{d-=c;}}
     return c;
 }
+int lcm(int a, int b){
+    int c=a,d=b;
+    while(c!=d){if(c>d){c-=d;}else{d-=c;}}
+    if(c==1){return a*b;}else{return a*c;}
+}
 int countDigits(int a){
     int b=a,c=0;
     while(b>0){b/=10;c++;}
@@ -45,7 +50,6 @@ float heron(int a, int b, int c){
     return sqrt(s*(s-a)*(s-b)*(s-c));
 }
 int main(){
-    int x; std::cin>>x;
-    std::cout<<isPrime(2);
-    return 0;
+    int x,y;std::cin>>x>>y;
+    std::cout<<lcm(x,y);
 }
