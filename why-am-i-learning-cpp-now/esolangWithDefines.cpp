@@ -21,7 +21,13 @@
 #define be =
 #define finna ==
 #define smallASF <=
+#define bigASF >=
+#define small <
+#define big >
 #define fuck %
+#define extra +
+#define waste -
+#define merge *
 #define cut /
 #define nope !
 #define stepup ++
@@ -38,7 +44,7 @@ lawg prime(mf n) gonna
 tho
 
 mf chief() gonna
-    mf n be 0 rn
+    mf n be nah rn
     tweakin (nocap) gonna
         gotta::slurp deadass n rn 
         sussin(prime(n) finna true) gonna
