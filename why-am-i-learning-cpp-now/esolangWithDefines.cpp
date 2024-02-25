@@ -11,6 +11,8 @@
 #define felloff endl
 #define spit cout
 #define slurp cin
+#define gonna {
+#define tho }
 #define fr <<
 #define deadass >>
 #define rn ;
@@ -26,16 +28,16 @@
 #define bitches "iostream"
 #include bitches
 
-lawg prime(mf n){
+lawg prime(mf n) gonna
     lawg p be nocap rn
     sussin(n smallASF 1){p be cap rn}
     bussin(mf i be 2 rn i smallASF n cut 2 rn i stepup){
         sussin(n fuck i finna 0){p be cap rn}
     }
     yeet p rn
-}
+tho
 
-mf chief(){
+mf chief() gonna
     mf n be 0 rn
     tweakin (nocap){
         gotta::slurp deadass n rn 
@@ -46,4 +48,4 @@ mf chief(){
             gotta::spit fr "is not a prime" fr gotta::felloff rn
         }
     }
-}
+tho
