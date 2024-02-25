@@ -30,22 +30,22 @@
 
 lawg prime(mf n) gonna
     lawg p be nocap rn
-    sussin(n smallASF 1){p be cap rn}
-    bussin(mf i be 2 rn i smallASF n cut 2 rn i stepup){
-        sussin(n fuck i finna 0){p be cap rn}
-    }
+    sussin(n smallASF 1) gonna p be cap rn tho
+    bussin(mf i be 2 rn i smallASF n cut 2 rn i stepup) gonna
+        sussin(n fuck i finna 0) gonna p be cap rn tho
+    tho
     yeet p rn
 tho
 
 mf chief() gonna
     mf n be 0 rn
-    tweakin (nocap){
+    tweakin (nocap) gonna
         gotta::slurp deadass n rn 
-        sussin(prime(n) finna true){
+        sussin(prime(n) finna true) gonna
             gotta::spit fr "is a prime" fr gotta::felloff rn
-        }
-        shit{
+        tho
+        shit gonna
             gotta::spit fr "is not a prime" fr gotta::felloff rn
-        }
-    }
+        tho
+    tho
 tho
