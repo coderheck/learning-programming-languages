@@ -1,9 +1,12 @@
-using namespace std;
-#include"iostream"
-int main(){
-    int n[100],c=0;
-    for(int i=10;i<100;i++){
-        if(i%3==1 && i%5==1){n[c]=i;c++;}
-    }
-    for(int i=0;i<c;i++){cout<<n[i]<<" ";}
+#include <iostream>
+#include <string>
+
+int main() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    std::string name;
+    std::cout << "What's your name:";
+    std::cin >> name;
+    std::cout << "Your name is " << name << std::endl;
+    return 0;
 }

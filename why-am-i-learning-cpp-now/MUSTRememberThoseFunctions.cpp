@@ -49,6 +49,33 @@ float heron(int a, int b, int c){
     float s=(a+b+c)/2.0; // chia cho 2.0 moi dc 🤯
     return sqrt(s*(s-a)*(s-b)*(s-c));
 }
+void countSort(int array[], int size) {
+  int output[10], count[10], max = array[0];
+  // find max
+  for (int i=1; i<size; i++) {
+    if(array[i]>max){max=array[i];}
+  }
+  // init array with zeroes
+  for (int i=0; i<=max; i++) {
+    count[i]=0;
+  }
+  // count each element
+  for (int i=0; i<size; i++) {
+    count[array[i]]++;
+  }
+  // total count of each array
+  for (int i=1; i<=max; i++) {
+    count[i]+=count[i - 1];
+  }
+  for (int i=size-1; i>=0; i--) {
+    output[count[array[i]]-1]=array[i];
+    count[array[i]]--;
+  }
+  // replace given array
+  for (int i = 0; i < size; i++) {
+    array[i]=output[i];
+  }
+}
 int main(){
     int x,y;std::cin>>x>>y;
     std::cout<<lcm(x,y);
