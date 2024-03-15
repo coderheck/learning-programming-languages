@@ -4,7 +4,6 @@
 #define then {
 #define end }
 #define else }else{
-#define function bool
 #define function int
 #define do {
 #define true (true)
