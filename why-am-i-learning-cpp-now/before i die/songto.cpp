@@ -7,14 +7,10 @@ bool nguyento(int n){
     for(int i=2;i<=n/2;i++){if(n%i==0){nt=false;}}
     return nt;
 }
-int tongchuso(int arg){
-    int n=arg,sum=0;
-    while(n!=0){sum+=n%10;n/=10;}
-    return sum;
-}
 bool songnguyento(int n){
-    bool snt=true;
-    if(nguyento(tongchuso(n))!=true){snt=false;}
+    bool snt=true;int n1=n,tongchuso1=0;
+    while(n1!=0){tongchuso1+=n1%10;n1/=10;}
+    if(nguyento(tongchuso1)!=true){snt=false;}
     return snt;
 }
 int main(){
