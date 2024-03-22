@@ -178,7 +178,12 @@ big gcd(big a, big b){
     return a;
 }
 
+bool prime(big n){
+    bool p=true;
+    return p;
+}
+
 int main(){
     big n,m;cin>>n>>m;
-    cout<<n/m;
+    cout<<n-m;
 }

@@ -1,3 +1,34 @@
+// -*- lsst-c++ -*-
+/*
+* LSST Data Management System
+* See COPYRIGHT file at the top of the source tree.
+*
+* This product includes software developed by the
+* LSST Project (http://www.lsst.org/).
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the LSST License Statement and
+* the GNU General Public License along with this program. If not,
+* see <http://www.lsstcorp.org/LegalNotices/>.
+*/
+
+/**
+ * @defgroup BigNumbers
+ * @file big_datatype.h
+ * @brief Used to construct and work with numbers larger than the unsigned long long datatype's limit (see ULLONG_MAX)
+ * @ingroup BigNumbers
+ * @author coderheck on GitHub, copied somewhere
+ */
+
 #pragma once
 #include<iostream>
 #include<vector>
@@ -5,17 +36,6 @@
 #include<algorithm>
 
 typedef std::vector<int> big;
-
-namespace std{
-    class BigNumber{
-        public:
-        inline big int_to_big(int n);
-        inline big gcd(big a, big b);
-        inline void addzero(big &n, int len);
-        inline void equalize_length(big &a, big &b);
-        inline void del_leading_zero(big &n);
-    };
-}
 
 // READ/WRITE, MISCELLANEOUS FUNCTIONS AND OPERATORS FOR BIG NUMBERS
 
@@ -29,6 +49,9 @@ std::ostream &operator << (std::ostream &cout, const big &n){
     for(auto d : n){std::cout<<d;}
     return cout;
 }
+/** Converts an integer into a "number" of the "big" datatype.
+* @param n Integer to convert
+*/
 big int_to_big(int n){
     big c;
     if(n==0){c.push_back(n);return c;}
