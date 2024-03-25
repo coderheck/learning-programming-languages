@@ -131,59 +131,7 @@ big operator * (big a, big b){
     del_leading_zero(c);
     return c;
 }
-big operator / (big a, long long b){
-    long long cur = 0;
-    big c;
-    for (int d : a){
-        cur=cur*10+d;
-        c.push_back(cur/b);
-        cur%=b;
-    }
-    del_leading_zero(c);
-    return c;
-}
-big operator / (big a, big b) {
-    big c,l,r=a,one=int_to_big(1);
-    c.push_back(0); l.push_back(1);
-    while(l<=r){
-        big mid=(l+r)/2;
-        if (mid*b<=a){
-            c=mid;l=mid+one;
-        }else{
-            r=mid-one;
-        }
-    }
-    return c;
-}
-big operator % (big a, big b){
-    big c=a/b*b;
-    return a-c;
-}
-long long operator % (big a, long long b){
-    long long res=0;
-    for(int d : a){
-        res=(res*10+d)%b;
-    }
-    return res;
-}
-
-// FUNCTION IMPLEMENTATIONS WITH THE "BIG" NUMBER DATATYPE
-
-big gcd(big a, big b){
-    big zero=int_to_big(0);
-    while (b!=zero){
-        big r=a%b;
-        a=b; b=r;
-    }
-    return a;
-}
-
-bool prime(big n){
-    bool p=true;
-    return p;
-}
-
 int main(){
-    big n,m;cin>>n>>m;
-    cout<<n*m;
+  int n,m;cin>>n>>m;
+  cout<<n+m<<"\n"<<n-m<<"\n"<<n*m;
 }

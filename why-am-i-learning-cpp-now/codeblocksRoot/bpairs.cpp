@@ -7,8 +7,10 @@ int tcs(int arg){
     return sum;
 }
 int main(){
-    freopen("bpairs.inp","r",stdin);
-    freopen("bpairs.out","w",stdout);
+    if(fopen("bpairs.inp","r")){
+        freopen("bpairs.inp","r",stdin);
+        freopen("bpairs.out","w",stdout);
+    }
     int n,dem=0; cin>>n; int a[n];
     for(int i=0;i<n;i++){cin>>a[i];}
     for(int i=0;i<n;i++){

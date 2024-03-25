@@ -81,7 +81,19 @@ std::vector<int> dijkstraPrimeAlgorithm(int numberOfPrimes){ // this requires th
   }
   return primes;
 }
-
+#include"sstream"
+int ExtractIntegersFromString(std::string str){
+  std::stringstream ss; ss<<str;
+  std::string tmp; int found, ret=0;
+  while(!ss.eof()){
+    ss>>tmp;
+    if(std::stringstream(tmp)>>found){ret*=10;ret+=found;}
+    tmp="";
+  }
+  return ret;
+}
 int main(){
-
+  std::string str = "9829812troll37d98";
+  int ints = ExtractIntegersFromString(str);
+  std::cout<<ints;
 }
