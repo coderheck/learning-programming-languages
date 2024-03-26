@@ -1,22 +1,23 @@
-#include"iostream"
-#include"algorithm"
-#include"string"
-#include"sstream"
+#include<iostream>
+#include<string>
+#include<sstream>
 using namespace std;
-string IntToString(int a){
-    stringstream temp;
-    temp << a;
-    return temp.str();
+string IntToASCII(int n){
+  stringstream tmp; tmp<<n;
+  string ret; tmp>>ret;
+  return ret;
 }
-string insertnumber(string s,int val){
-    s+=IntToString(val); return s;
+bool xaudoixung(string s,int n){
+  bool dx=true;
+  for(int i=0;i<n/2;i++){if(s[i]!=s[n-i-1]){dx=false;}}
+  return dx;
 }
 int main(){
-    int n;string s="",s1,s2;cin>>n;int s2i=0;
-    for(int i=1;i<=n;i++){int a,b;cin>>a>>b;insertnumber(s,a+b);}
-    cout<<s<<"\n";
-    for(int i=0;i<n/2;i++){s1[i]=s[i];}
-    cout<<s1<<"\n";
-    for(int i=n-1;i>=n/2;i--){s2[s2i]=s[i];s2i++;}
-    cout<<s2;
+  int n;bool ok=true;cin>>n;string s;
+  for(int i=1;i<=n;i++){
+    long long x,y;cin>>x>>y;string xy=IntToASCII(x+y);
+    s+=xy;
+  }
+  if(xaudoixung(s,s.length())==true){cout<<"YES";}else{cout<<"NO";}
 }
+// AC
