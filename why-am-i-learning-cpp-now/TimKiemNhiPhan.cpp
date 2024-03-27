@@ -14,6 +14,6 @@ int timkiemnhiphan(int arr[], int l, int r, int x){
   }else{return -1;}
 }
 int main(){
-  int a[17]={1,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59};
+  int a[17]={11,43,5,47,1,13,17,19,23,29,31,37,41,4,7,53,59};
   cout<<timkiemnhiphan(a,0,16,37);
 }

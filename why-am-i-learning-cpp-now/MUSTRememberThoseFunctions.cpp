@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-
 bool isPrime(long long n){
     bool isprime=true;
     if(n<=1){isprime=false;}
@@ -48,6 +47,18 @@ int countDigits(int a){
 float heron(int a, int b, int c){
     float s=(a+b+c)/2.0; // chia cho 2.0 moi dc 🤯
     return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+#include"algorithm"
+int timkiemnhiphan(int a[],int l,int r,int x){
+    std::sort(a,a+r);
+    if(r>=l){
+        int m=l+(r-l)/2;
+        if(a[m]==x){return m;}else{
+            if(a[m]>x){return timkiemnhiphan(a,l,m-1,x);}else{
+                return timkiemnhiphan(a,m+1,r,x);
+            }
+        }
+    }else{return -1;}
 }
 int main(){
     int x,y;std::cin>>x>>y;
