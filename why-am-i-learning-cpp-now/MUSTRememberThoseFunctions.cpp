@@ -29,15 +29,11 @@ bool isPerfect(long long arg){
     if(arg==sum){isperfect=true;}else{isperfect=false;}
     return isperfect;
 }
-int gcd(int a, int b){
-    int c=a,d=b;
-    while(c!=d){if(c>d){c-=d;}else{d-=c;}}
-    return c;
+long long gcd(long long a,long long b){
+  if(b==0){return a;}else{return gcd(b,a%b);}
 }
-int lcm(int a, int b){
-    int c=a,d=b;
-    while(c!=d){if(c>d){c-=d;}else{d-=c;}}
-    if(c==1){return a*b;}else{return a*c;}
+long long lcm(long long a, long long b){
+  return std::abs(a/gcd(a,b)*b);
 }
 int countDigits(int a){
     int b=a,c=0;
@@ -59,6 +55,17 @@ int timkiemnhiphan(int a[],int l,int r,int x){
             }
         }
     }else{return -1;}
+}
+long long demuoc(long long n){
+  long long d=0;
+  for(long long i=1;i*i<=n;i++){
+    if(n%i==0){
+      d++;
+      long long j=n/i;
+      if(j!=i){d++;}
+    }
+  }
+  return d;
 }
 int main(){
     int x,y;std::cin>>x>>y;
