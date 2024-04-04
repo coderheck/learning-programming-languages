@@ -67,6 +67,20 @@ long long demuoc(long long n){
   }
   return d;
 }
+unsigned long long tonguoc(unsigned long long n){
+    unsigned long long t=0;
+    for(unsigned long long i=1;i*i<=n;i++){
+        if(n%i==0){
+            t+=i;
+	        unsigned long long j=n/i;
+	        if(j!=i){t+=j;}
+        }
+    }
+	return t;
+}
+long long giaithua(long long n){
+    if(n==1){return 1;}else{return n*giaithua(n-1);}
+}
 int main(){
     int x,y;std::cin>>x>>y;
     std::cout<<lcm(x,y);

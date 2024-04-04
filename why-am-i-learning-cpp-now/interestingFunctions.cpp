@@ -45,7 +45,7 @@ void countSort(int array[], int size) {
     array[i]=output[i];
   }
 }
-void eratosthenes_sieve(bool arr[],int n){
+void eratosthenes_sieve(bool arr[],unsigned long long n){
   // init prime table
   for (int i=0;i<=n;i++){arr[i]=true;}
   // 0 and 1 arent primes
@@ -53,7 +53,7 @@ void eratosthenes_sieve(bool arr[],int n){
   // if i is not a prime then all its multiples are not primes
   for (int i=2;i*i<=n;i++){
     if (arr[i]){
-      for (int j=i*i;j<=n;j+=i){arr[j]=false;}
+      for (unsigned long long j=i*i;j<=n;j+=i){arr[j]=false;}
     }
   }
 }
