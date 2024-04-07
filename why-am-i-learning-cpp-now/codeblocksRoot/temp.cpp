@@ -1,21 +1,17 @@
 #include"iostream"
-#include"string"
+#include"climits"
 #include"algorithm"
-#include"stdio.h"
-#define ll long unsigned int
+#define ll long long
+#define kbcl 0
 using namespace std;
-int main(){
-	string s;getline(cin,s);
-	while(s[0]==' '){s.erase(0,1);}
-  while(s[s.length()-1]==' '){s.erase(s.length()-1,1);}
-  for(ll i=0;i<s.length();i++){if(s[i]==s[i+1]&&s[i]==' '){s.erase(i,1);i--;}}
-	ll wordcount=0;
-	for(ll i=0;i<s.size();i++){
-		if((s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z')){
-			wordcount++;ll j=i;
-			while(s[j]!=' '){j++;}
-			i=j;
-		}
-	}
-	cout<<wordcount;
+int kbc(){
+  int n;cin>>n;ll a[n],minH=LLONG_MAX;
+  for(int i=0;i<n;i++){cin>>a[i];}
+  for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++){
+      minH=min(minH,abs(a[i]-a[j]));
+    }
+  }
+  cout<<minH;
+  return kbcl;
 }

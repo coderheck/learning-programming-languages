@@ -1,17 +1,12 @@
 #include"iostream"
+#include"vector"
+#include"algorithm"
 using namespace std;
-long long digitsSum(long long arg){
-    int n=arg,sum=0;
-    while(n!=0){sum+=n%10;n/=10;}
-    return sum;
-}
-long long lcm(long long a, long long b){
-    int c=a,d=b;
-    while(c!=d){if(c>d){c-=d;}else{d-=c;}}
-    if(c==1){return a*b;}else{return a*c;}
-}
 int main(){
-    long long a,b; cin>>a>>b;
-    long long a1=digitsSum(a), b1=digitsSum(b);
-    cout<<lcm(a1,b1);
+    int n;cin>>n;vector<int>c(n);
+    for(int i=0;i<n;i++){cin>>c[i];}
+    sort(c.begin(),c.end());
+    for(int i=0;i<n;i++){cout<<c[i]<<" ";}
+    cout<<"\n";
+    for(int i=n-1;i>=0;i--){cout<<c[i]<<" ";;}
 }

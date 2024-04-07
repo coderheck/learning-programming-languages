@@ -15,7 +15,12 @@ int kien(){
     freopen("hh.inp","r",stdin);
     freopen("hh.out","w",stdout);
   }
-  int n,iter=0;cin>>n;vector<ll>res(n);ull cur=19;
-  while(iter<n){if(check(cur)==true){res[iter]=cur;cur+=9;iter++;}else{cur+=9;}}
-  cout<<res[iter];
+  ll k,dem=0;cin>>k;ll a[k];
+  for(ll i=1;;i++){
+    if(check(i)==true){
+      dem++;
+      a[dem]=i;
+      if(k==dem){cout<<a[k];break;}
+    }
+  }
 }

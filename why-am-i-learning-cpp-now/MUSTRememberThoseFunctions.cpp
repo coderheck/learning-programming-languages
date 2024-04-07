@@ -29,6 +29,17 @@ bool isPerfect(long long arg){
     if(arg==sum){isperfect=true;}else{isperfect=false;}
     return isperfect;
 }
+bool checkHH(long long n){
+  long long t=0;
+  for(long long i=1;i*i<=n;i++){
+    if(n%i==0){
+      t+=i;
+      long long j=n/i;
+      if(j!=i){t+=j;}
+    }
+  }
+  return(n==t-n);
+}
 long long gcd(long long a,long long b){
   if(b==0){return a;}else{return gcd(b,a%b);}
 }
