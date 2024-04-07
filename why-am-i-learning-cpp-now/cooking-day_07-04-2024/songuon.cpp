@@ -7,11 +7,10 @@ ll tcs(ll n){
   return t;
 }
 int main(){
-  ll m,res=-1;cin>>m;
-  if(m>=10){
-    for(ll i=1;;i++){
-      if(i+tcs(i)==m){res=i;break;}
-    }
+  ll n,res=-1;cin>>n;ll t=n-1;
+  if(n>=100){t=100;}
+  for(ll i=n-t;i<=n;i++){
+    if(tcs(i)+i==n){res=i;break;}
   }
   cout<<res;
 }
