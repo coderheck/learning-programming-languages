@@ -1,20 +1,16 @@
 #include"iostream"
-#include"string"
-#include"sstream"
+#define ll long long
 using namespace std;
-string inttostring(int n){
-	stringstream ss;string tmp;
-	ss<<n;ss>>tmp;
-	return tmp;
+ll tcs(ll n){
+  ll t=0,n1=n;
+  while(n1!=0){t+=n1%10;n1/=10;}
+  return t;
 }
 int main(){
-	int n;cin>>n;
-	for(int i=1;i<=n;i++){
-		string s;cin>>s;
-		if(s.length()<=10){cout<<s<<"\n";}else{
-			int ThisIsWhyIHateYou=s.length()-2;
-			s.replace(s.begin()+1,s.end()-1,inttostring(ThisIsWhyIHateYou));
-			cout<<s<<"\n";
-		}
-	}
+  ll n,res=-1;cin>>n;ll t=n-1;
+  if(n>=100){t=100;}
+  for(ll i=n-t;i<=n;i++){
+    if(tcs(i)+i==n){res=i;break;}
+  }
+  cout<<res;
 }
