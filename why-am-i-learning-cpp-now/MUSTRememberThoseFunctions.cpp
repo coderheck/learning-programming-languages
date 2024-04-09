@@ -29,7 +29,7 @@ bool isPerfect(long long arg){
     if(arg==sum){isperfect=true;}else{isperfect=false;}
     return isperfect;
 }
-bool checkHH(long long n){
+bool checkSoHoanHao(long long n){
   long long t=0;
   for(long long i=1;i*i<=n;i++){
     if(n%i==0){
