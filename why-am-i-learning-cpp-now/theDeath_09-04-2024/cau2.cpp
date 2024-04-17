@@ -15,5 +15,6 @@ ll sd(int k){
   return cur;
 }
 int main(){
-  cout<<sd(100000);
+  int k;cin>>k;cout<<sd(k);
+  // cout<<sd(18000);
 }

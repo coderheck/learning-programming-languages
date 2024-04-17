@@ -1,16 +1,15 @@
 #include"iostream"
+#include"algorithm"
 #define ll long long
+#define mod 1000000007
 using namespace std;
-ll tcs(ll n){
-  ll t=0,n1=n;
-  while(n1!=0){t+=n1%10;n1/=10;}
-  return t;
-}
 int main(){
-  ll n,res=-1;cin>>n;ll t=n-1;
-  if(n>=100){t=100;}
-  for(ll i=n-t;i<=n;i++){
-    if(tcs(i)+i==n){res=i;break;}
+  ll a[5];bool nice=false;
+  for(int i=0;i<5;i++){cin>>a[i];}
+  for(int i=0;i<5;i++){
+    int c=0;
+    for(int j=0;j<5;j++){if(a[j]==a[i]){c++;}}
+    if(c==4){nice=true;cout<<"YES";break;}
   }
-  cout<<res;
+  if(!nice){cout<<"NO";}
 }
