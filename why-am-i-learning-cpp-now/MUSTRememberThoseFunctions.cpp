@@ -57,15 +57,15 @@ float heron(int a, int b, int c){
 }
 #include"algorithm"
 int timkiemnhiphan(int a[],int l,int r,int x){
-    std::sort(a,a+r);
-    if(r>=l){
-        int m=l+(r-l)/2;
-        if(a[m]==x){return m;}else{
-            if(a[m]>x){return timkiemnhiphan(a,l,m-1,x);}else{
-                return timkiemnhiphan(a,m+1,r,x);
-            }
-        }
-    }else{return -1;}
+	std::sort(a,a+r);
+	if(r>=l){
+		int m=l+(r-l)/2;
+		if(a[m]==x){return m;}else{
+			if(a[m]>x){return timkiemnhiphan(a,l,m-1,x);}else{
+				return timkiemnhiphan(a,m+1,r,x);
+			}
+		}
+	}else{return -1;}
 }
 long long demuoc(long long n){
   long long d=0;
