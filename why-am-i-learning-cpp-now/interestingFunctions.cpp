@@ -14,7 +14,7 @@ void fastscan(int &number){
         c = getchar();
     }
     // Keep on extracting characters if they are integers
-    // i.e ASCII Value lies from '0'(48) to '9' (57)
+    // i.e ASCII Value lies from '0' (48) to '9' (57)
     for (; (c>47 && c<58); c=getchar()){number = number *10 + c - 48;}
     if (negative){number *= -1;}
 }
@@ -60,9 +60,9 @@ void eratosthenes_sieve(bool arr[],unsigned long long n){
 #include "vector"
 std::vector<int> dijkstraPrimeAlgorithm(int numberOfPrimes){ // this requires the vector library, also this isnt complete
   std::vector <int> primes = {2}, Q; int x=1, limit=4;
-  auto is_prime = [&](int x){
+  auto is_prime=[&](int x){
     bool p=true;
-    for(int k=2; k<Q.size(); k++){
+    for(int k=2;k<=Q.size();k++){
       if(x>Q[k])
         Q[k]+=primes[k];
       if(x==Q[k])
@@ -74,7 +74,7 @@ std::vector<int> dijkstraPrimeAlgorithm(int numberOfPrimes){ // this requires th
     do{
       x+=2;
       if(x>=limit){
-        Q[Q.size()], limit = limit, primes[Q.size()+1]*primes[Q.size()+1];
+        Q[Q.size()],limit=limit,primes[Q.size()+1]*primes[Q.size()+1];
       }
     }while(!is_prime(x));
     primes.push_back(x);
@@ -92,8 +92,24 @@ int ExtractIntegersFromString(std::string str){
   }
   return ret;
 }
+void popbackLL(long long &n){
+  long long r=0,n1=n,n2=0;
+  while(n1!=0){n2*=10;n2+=n1%10;n1/=10;}
+  while(n2>10){r*=10;r+=n2%10;n2/=10;}
+  n=r;
+}
+void PrintPrimeFactors(long long n){
+  while(n%2==0){std::cout<<2<<" ";n/=2;}
+  for(long long i=3;i*i<=n;i=i+2){
+    while(n%i==0){
+      std::cout<<i<<" ";
+      n/=i;
+    }
+  }
+  if(n>2)std::cout<<n<<" ";
+}
+using namespace std;
 int main(){
-  std::string str = "9829812troll37d98";
-  int ints = ExtractIntegersFromString(str);
-  std::cout<<ints;
+  vector<int>primes=dijkstraPrimeAlgorithm(10);
+  for(int i=0;i<10;i++){cout<<primes[i]<<" ";}
 }

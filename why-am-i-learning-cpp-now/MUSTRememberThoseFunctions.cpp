@@ -92,6 +92,11 @@ unsigned long long tonguoc(unsigned long long n){
 long long giaithua(long long n){
     if(n==1){return 1;}else{return n*giaithua(n-1);}
 }
+bool xaudoixung(std::string s){
+  bool dx=true;
+  for(int i=0;i<s.length()/2;i++){if(s[i]!=s[s.length()-i-1]){dx=false;break;}}
+  return dx;
+}
 int main(){
     int x,y;std::cin>>x>>y;
     std::cout<<lcm(x,y);
