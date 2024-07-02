@@ -1,44 +1,41 @@
 #include <iostream>
 #include <cmath>
 bool isPrime(long long n){
-    bool isprime=true;
-    if(n<=1){isprime=false;}
-    for(long long i=2;i<=n/2;i++){
-        if(n%i==0){isprime=false;}
-    }
-    return isprime;
+  bool isprime=true;
+  if(n<=1){isprime=false;}
+  for(long long i=2;i<=n/2;i++){
+    if(n%i==0){isprime=false;}
+  }
+  return isprime;
 }
 long long digitsSum(long long arg){
-    int n=arg,sum=0;
-    while(n!=0){sum+=n%10;n/=10;}
-    return sum;
+  int sum=0;
+  while(arg!=0){sum+=arg%10;arg/=10;}
+  return sum;
 }
 bool isSquare(long long a){
-    bool s;
-    if(floor(sqrt(a))==sqrt(a)&&ceil(sqrt(a))==sqrt(a)){s=true;}else{s=false;}
-    return s;
+  return (floor(sqrt(a)) == sqrt(a) && ceil(sqrt(a)) == sqrt(a));
 }
 long long reverseDigits(long long arg){
-    long long n=arg,digit,rev=0;
-    while(n>0){rev*=10;digit=n%10;rev+=digit;n/=10;}
-    return rev;
+  long long rev=0;
+  while(arg>0){rev*=10;rev+=arg%10;arg/=10;}
+  return rev;
 }
 bool isPerfect(long long arg){
-    long long sum=0;bool isperfect;
-    for (long long i=1;i<arg;i++){if(arg%i==0){sum+=i;}}
-    if(arg==sum){isperfect=true;}else{isperfect=false;}
-    return isperfect;
+  long long sum=0;bool isperfect;
+  for(long long i=1;i<=arg/2;i++){if(arg%i==0){sum+=i;}}
+  return(arg==sum);
 }
-bool checkSoHoanHao(long long n){
-  long long t=0;
+bool isPerfect_optimized(long long n){
+  long long sum=0;
   for(long long i=1;i*i<=n;i++){
     if(n%i==0){
-      t+=i;
+      sum+=i;
       long long j=n/i;
-      if(j!=i){t+=j;}
+      if(j!=i){sum+=j;}
     }
   }
-  return(n==t-n);
+  return(n==sum-n);
 }
 long long gcd(long long a,long long b){
   if(b==0){return a;}else{return gcd(b,a%b);}
@@ -46,28 +43,28 @@ long long gcd(long long a,long long b){
 long long lcm(long long a, long long b){
   return std::abs(a/gcd(a,b)*b);
 }
-int countDigits(int a){
-    int b=a,c=0;
-    while(b>0){b/=10;c++;}
-    return c;
+long long countDigits(long long arg){
+  int c=0;
+  while(arg>0){arg/=10;c++;}
+  return c;
 }
-float heron(int a, int b, int c){
-    float s=(a+b+c)/2.0; // chia cho 2.0 moi dc 🤯
-    return sqrt(s*(s-a)*(s-b)*(s-c));
+long double heron(long double a, long double b, long double c){
+  long double s=(a+b+c)/2;
+  return sqrt(s*(s-a)*(s-b)*(s-c));
 }
 #include"algorithm"
-int timkiemnhiphan(int a[],int l,int r,int x){
+int BinarySearch(int a[],int l,int r,int x){
 	std::sort(a,a+r);
 	if(r>=l){
 		int m=l+(r-l)/2;
 		if(a[m]==x){return m;}else{
-			if(a[m]>x){return timkiemnhiphan(a,l,m-1,x);}else{
-				return timkiemnhiphan(a,m+1,r,x);
+			if(a[m]>x){return BinarySearch(a,l,m-1,x);}else{
+				return BinarySearch(a,m+1,r,x);
 			}
 		}
 	}else{return -1;}
 }
-long long demuoc(long long n){
+long long countDivisors(long long n){
   long long d=0;
   for(long long i=1;i*i<=n;i++){
     if(n%i==0){
@@ -78,26 +75,27 @@ long long demuoc(long long n){
   }
   return d;
 }
-unsigned long long tonguoc(unsigned long long n){
-    unsigned long long t=0;
+unsigned long long sumOfDivisors(unsigned long long n){
+    unsigned long long sum=0;
     for(unsigned long long i=1;i*i<=n;i++){
         if(n%i==0){
-            t+=i;
+          sum+=i;
 	        unsigned long long j=n/i;
-	        if(j!=i){t+=j;}
+	        if(j!=i){sum+=j;}
         }
     }
-	return t;
+	return sum;
 }
-long long giaithua(long long n){
-    if(n==1){return 1;}else{return n*giaithua(n-1);}
+long long factorial(long long n){
+  if(n==1){return 1;}else{return n*factorial(n-1);}
 }
-bool xaudoixung(std::string s){
+bool isPalindrome(std::string s){
   bool dx=true;
   for(int i=0;i<s.length()/2;i++){if(s[i]!=s[s.length()-i-1]){dx=false;break;}}
   return dx;
 }
+#define ll long long
 int main(){
-    int x,y;std::cin>>x>>y;
-    std::cout<<lcm(x,y);
+  ll a;std::cin>>a;
+  std::cout<<isPerfect(a);
 }
