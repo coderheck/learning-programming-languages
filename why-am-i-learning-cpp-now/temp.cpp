@@ -1,6 +1,6 @@
-#include"stdio.h"
+#include"cstdio"
 #include"cmath"
 int main(){
-  long double pi=2*std::acos(0.0);
-  printf("%f",pi);
+  double pi=2*std::asin(1.0);
+  printf("%.10f",pi);
 }
