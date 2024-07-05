@@ -108,8 +108,15 @@ void PrintPrimeFactors(long long n){
   }
   if(n>2)std::cout<<n<<" ";
 }
+long long fastPow(long long x, unsigned long long y){
+  long long ret=1;
+  while(y>0){
+    if(y&1){ret*=x;}
+    y>>=1;x*=x;
+  }
+  return ret;
+}
 using namespace std;
 int main(){
-  vector<int>primes=dijkstraPrimeAlgorithm(10);
-  for(int i=0;i<10;i++){cout<<primes[i]<<" ";}
+  std::cout<<fastPow(15,11);
 }

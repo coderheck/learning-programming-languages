@@ -1,6 +1,10 @@
-#include"cstdio"
-#include"cmath"
+#include"iostream"
+#define ll long long
+using namespace std;
 int main(){
-  double pi=2*std::asin(1.0);
-  printf("%.10f",pi);
+  int n;cin>>n;ll t;
+  if(n%2==0){
+    t=n/2;
+  }else{t=(n-1)/2-n;}
+  cout<<t;
 }
