@@ -16,7 +16,7 @@ int main(){
   ll n,res=0,maxtcs=0;cin>>n;
   while(n--){
     ll a;cin>>a;
-    if(nto(a)){if(tcs(a)>maxtcs){maxtcs=tcs(a);res=a;}}
+    if(nto(a) && tcs(a)>maxtcs){maxtcs=tcs(a);res=a;}
   }
   cout<<res;
 }
