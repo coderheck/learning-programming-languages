@@ -52,9 +52,7 @@ long double heron(long double a, long double b, long double c){
   long double s=(a+b+c)/2;
   return sqrt(s*(s-a)*(s-b)*(s-c));
 }
-#include"algorithm"
 int BinarySearch(int a[],int l,int r,int x){
-	std::sort(a,a+r);
 	if(r>=l){
 		int m=l+(r-l)/2;
 		if(a[m]==x){return m;}else{
