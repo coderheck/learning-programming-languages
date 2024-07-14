@@ -58,7 +58,9 @@ int BinarySearch(int a[],int l,int r,int x){
 	if(r>=l){
 		int m=l+(r-l)/2;
 		if(a[m]==x){return m;}else{
-			if(a[m]>x){return BinarySearch(a,l,m-1,x);}else{
+			if(a[m]>x){
+        return BinarySearch(a,l,m-1,x);
+      }else{
 				return BinarySearch(a,m+1,r,x);
 			}
 		}
@@ -77,14 +79,12 @@ long long countDivisors(long long n){
 }
 unsigned long long sumOfDivisors(unsigned long long n){
     unsigned long long sum=0;
-    for(unsigned long long i=1;i*i<=n;i++){
+    for(unsigned long long i=2;i*i<=n;i++){
         if(n%i==0){
-          sum+=i;
-	        unsigned long long j=n/i;
-	        if(j!=i){sum+=j;}
+          if(i==(n/i)){sum+=i;}else{sum+=(i+(n/i));}
         }
     }
-	return sum;
+	return (sum+1);
 }
 long long factorial(long long n){
   if(n==1){return 1;}else{return n*factorial(n-1);}
@@ -96,6 +96,5 @@ bool isPalindrome(std::string s){
 }
 #define ll long long
 int main(){
-  ll a;std::cin>>a;
-  std::cout<<isPerfect(a);
+  std::cout<<sumOfDivisors(220)<<" "<<sumOfDivisors(284);
 }

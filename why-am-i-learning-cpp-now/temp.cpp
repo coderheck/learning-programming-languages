@@ -1,10 +1,11 @@
 #include"iostream"
-#define ll long long
 using namespace std;
+#define ll long long
 int main(){
-  int n;cin>>n;ll t;
-  if(n%2==0){
-    t=n/2;
-  }else{t=(n-1)/2-n;}
-  cout<<t;
+  ll a,b,c;cin>>a>>b>>c;
+  // delta = b^2 - 4ac
+  ll delta=(b*b)-(4*a*c);
+  if(delta<0){cout<<"NOSOL";}
+  if(delta==0){cout<<"ONE";}
+  if(delta>0){cout<<"TWO";}
 }
