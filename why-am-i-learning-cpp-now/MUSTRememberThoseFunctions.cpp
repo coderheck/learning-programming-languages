@@ -37,11 +37,11 @@ bool isPerfect_optimized(long long n){
   }
   return(n==sum-n);
 }
-long long gcd(long long a,long long b){
-  if(b==0){return a;}else{return gcd(b,a%b);}
+long long gcd(long long a, long long b){
+  return b == 0 ? a : gcd(b, a % b);
 }
 long long lcm(long long a, long long b){
-  return std::abs(a/gcd(a,b)*b);
+  return (a/gcd(a,b))*b;
 }
 long long countDigits(long long arg){
   int c=0;

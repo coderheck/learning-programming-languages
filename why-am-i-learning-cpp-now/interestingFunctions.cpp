@@ -116,6 +116,30 @@ long long fastPow(long long x, unsigned long long y){
   }
   return ret;
 }
+long long fastpowmod(long long a, unsigned long long b, long long c){
+  long long res=1; a%=c;
+  if(a==0)return 0;
+  while(b>0){ 
+    if(b&1){res=(res*a)%c;} 
+    b>>=1;
+    a=(a*a)%c; 
+  } 
+  return res; 
+}
+long long factmod(long long n, long long p) {
+  vector<int>f(p);
+  f[0] = 1;
+  for (int i = 1; i < p; i++)
+    f[i] = f[i-1] * i % p;
+  int res = 1;
+  while (n > 1) {
+    if ((n/p) % 2)
+      res = p - res;
+    res = res * f[n%p] % p;
+    n /= p;
+  }
+  return res;
+}
 using namespace std;
 int main(){
   PrintPrimeFactors(2354353454);
