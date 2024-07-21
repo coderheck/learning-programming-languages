@@ -111,7 +111,7 @@ void PrintPrimeFactors(long long n){
 long long fastPow(long long x, unsigned long long y){
   long long ret=1;
   while(y>0){
-    if(y&1){ret*=x;}
+    if(y&1){ret*=x;} // b & 1 == !(b % 2)
     y>>=1;x*=x;
   }
   return ret;
@@ -119,12 +119,11 @@ long long fastPow(long long x, unsigned long long y){
 long long fastpowmod(long long a, unsigned long long b, long long c){
   long long res=1; a%=c;
   if(a==0)return 0;
-  while(b>0){ 
-    if(b&1){res=(res*a)%c;} 
-    b>>=1;
-    a=(a*a)%c; 
-  } 
-  return res; 
+  while(b>0){
+    if(b&1){res=(res*a)%c;} // b & 1 == !(b % 2)
+    b>>=1; a=(a*a)%c;  // b >>= 1 == b /= 2
+  }
+  return res;
 }
 long long factmod(long long n, long long p) {
   vector<int>f(p);
