@@ -2,17 +2,19 @@
 using namespace std;
 #define ll long long
 bool nto(ll n){
-  bool nt=true;
-  if(n<=1){nt=false;}
+  if(n<=1){return false;}
   for(ll i=2;i*i<=n;i++){
-    if(n%i==0){nt=false;break;}
+    if(n%i==0){return false;}
   }
-  return nt;
+  return true;
+}
+string check(ll n){
+  while(n!=0){
+    if(!nto(n)){return"NO";}else{n/=10;}
+  }
+  return"YES";
 }
 int main(){
   ll n;cin>>n;
-  while(n!=0){
-    if(!nto(n)){cout<<"NO";}else{n/=10;}
-  }
-  cout<<"YES";
+  cout<<check(n);
 }

@@ -17,7 +17,7 @@ string palin(string s,int i,int j){
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(0);
-  string s;int n,len;cin>>len>>s>>n;
+  string s;int n;cin>>s>>n;
   for(int a=1;a<=n;a++){
     int i,j;cin>>i>>j;
     i--;j--;

@@ -92,6 +92,23 @@ bool isPalindrome(std::string s){
   for(int i=0;i<s.length()/2;i++){if(s[i]!=s[s.length()-i-1]){dx=false;break;}}
   return dx;
 }
+long long fastPow(long long x, unsigned long long y){
+  long long ret=1;
+  while(y>0){
+    if(y&1){ret*=x;} // b & 1 == !(b % 2)
+    y>>=1;x*=x;
+  }
+  return ret;
+}
+long long fastpowmod(long long a, unsigned long long b, long long c){
+  long long res=1; a%=c;
+  if(a==0)return 0;
+  while(b>0){
+    if(b&1){res=(res*a)%c;} // b & 1 == !(b % 2)
+    b>>=1; a=(a*a)%c;  // b >>= 1 == b /= 2
+  }
+  return res;
+}
 #define ll long long
 int main(){
   std::cout<<sumOfDivisors(220)<<" "<<sumOfDivisors(284);
