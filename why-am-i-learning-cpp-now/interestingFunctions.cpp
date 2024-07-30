@@ -139,6 +139,30 @@ long long factmod(long long n, long long p) {
   }
   return res;
 }
+long long getMax(std::vector<long long>arr, long long n){
+  long long mx=arr[0];
+  for(long long i=1;i<n;i++){
+    if(arr[i]>mx){mx=arr[i];}
+  }
+  return mx;
+}
+void countSortExp(std::vector<long long>&arr, long long n, long long exp){
+  long long output[n];
+  long long i,count[10]={0};
+  for(i=0;i<n;i++){count[(arr[i]/exp)%10]++;}
+  for(i=1;i<10;i++){count[i]+=count[i-1];}
+  for(i=n-1;i>=0;i--){
+    output[count[(arr[i]/exp)%10]-1]=arr[i];
+    count[(arr[i]/exp)%10]--;
+  }
+  for(i=0;i<n;i++){arr[i]=output[i];}
+}
+void parallelCountSort(std::vector<long long>&arr, long long n){
+  long long m=getMax(arr,n);
+  for(long long exp=1;m/exp>0;exp*=10){
+    for(long long i=0;i<n;i++){countSortExp(arr,n,exp);}
+  }
+}
 using namespace std;
 int main(){
   PrintPrimeFactors(2354353454);
