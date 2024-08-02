@@ -1,19 +1,16 @@
 #include"iostream"
-#include"string"
-#include"algorithm"
 using namespace std;
 #define ll long long
-ll factorial(ll n){
-  if(n==1){return 1;}else{return n*factorial(n-1);}
-}
+const int maxN=1e6;
+ll a[maxN],cnt[maxN],n;
 int main(){
-  string s;cin>>s;
-  sort(s.begin(),s.end());
-  ll perms=factorial(s.length());
-  for(ll j=0;j<s.length();j++){
-    ll c=1;
-    while(s[j+1]==s[j]){c++;j++;}
-    perms/=factorial(c);
+  cin>>n;
+  for(ll i=1;i<=n;i++){cin>>a[i];}
+  for(ll i=1;i<=n;i++){cnt[a[i]]++;}
+  ll hiCount=LLONG_MIN,loCount=LLONG_MAX,hiIndex=0,loIndex=0;
+  for(ll i=1;i<=n;i++){
+    if(cnt[a[i]]>hiCount){hiCount=cnt[a[i]];hiIndex=a[i];}
+    if(cnt[a[i]]<loCount){loCount=cnt[a[i]];loIndex=a[i];}
   }
-  cout<<perms;
+  cout<<hiIndex<<" "<<loIndex;
 }
