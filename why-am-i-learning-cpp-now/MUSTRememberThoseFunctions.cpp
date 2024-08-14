@@ -109,6 +109,14 @@ long long fastpowmod(long long a, unsigned long long b, long long c){
   }
   return res;
 }
+bool IsLadderNumber(long long n){
+  long long c=9;
+  while(n>0){
+    if(n%10>c){return false;}
+    c=n%10;n/=10;
+  }
+  return true;
+}
 #define ll long long
 int main(){
   std::cout<<sumOfDivisors(220)<<" "<<sumOfDivisors(284);

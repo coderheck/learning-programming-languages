@@ -1,4 +1,5 @@
 #define chief main
+#define sex main
 #define nocap true
 #define cap false
 #define lawg bool
@@ -33,6 +34,7 @@
 #define stepup ++
 #define bitches "iostream"
 #define nerd "math.h"
+#define kien "vector"
 
 lawg prime(mf n) gonna
     lawg p be nocap rn
