@@ -4,11 +4,11 @@
 using namespace std;
 #define ll long long
 bool bacthang(ll n){
-  ll c=9;
+  int du=0;
+  if(n<11) return false;
   while(n>0){
-    if(n%10>c)
-      return false;
-    c=n%10;n/=10;
+    du=n%10;n/=10;
+    if(n%10>=du)return false;
   }
   return true;
 }

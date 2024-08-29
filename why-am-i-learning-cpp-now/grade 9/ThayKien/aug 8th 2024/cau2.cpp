@@ -12,5 +12,5 @@ void parsestring(){
   cout<<aC;
 }
 int main(){
-  cin>>s;parsestring();
+  getline(cin,s);parsestring();
 }

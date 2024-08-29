@@ -11,17 +11,18 @@ robloxPath = robloxPath.replace("\"","")
 robloxPath = robloxPath.replace("%1","")
 robloxPath = os.path.split(robloxPath)[0]
 
-if not os.path.exists("./ClientAppSettings.json"):
+casPath = "C:/Users/datmobile/Documents/progs/ClientAppSettings.json"
+
+if not os.path.exists(casPath):
 	print("ClientAppSettings.json was not found at current working directory.")
-	exit(1)
 else:
 	if not os.path.exists(robloxPath + "\\ClientSettings"):
 		os.mkdir(robloxPath + "\\ClientSettings")
-		shutil.copy2('./ClientAppSettings.json', robloxPath + "\\ClientSettings")
+		shutil.copy2(casPath, robloxPath + "\\ClientSettings")
 	else:
 		if os.path.exists(robloxPath + "\\ClientSettings"):
-			shutil.copy2('./ClientAppSettings.json', robloxPath + "\\ClientSettings")
+			shutil.copy2(casPath, robloxPath + "\\ClientSettings")
 		else:
 			if os.path.exists(robloxPath + "\\ClientSettings" + "ClientAppSettings.json"):
 				os.remove(robloxPath + "\\ClientSettings" + "ClientAppSettings.json")
-				shutil.copy2('./ClientAppSettings.json', robloxPath + "\\ClientSettings")
+				shutil.copy2(casPath, robloxPath + "\\ClientSettings")
