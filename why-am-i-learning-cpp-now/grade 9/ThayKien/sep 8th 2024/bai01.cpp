@@ -1,7 +1,5 @@
 #include"iostream"
 using namespace std;
-#define ll long long
-ll n,b,a[2001];
 int main(){
-
+  long long n;cin>>n;cout<<n*(n-1)/2;
 }
