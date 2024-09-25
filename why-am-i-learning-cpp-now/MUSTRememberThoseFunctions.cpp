@@ -16,6 +16,13 @@ long long digitsSum(long long arg){
 bool isSquare(long long a){
   return (floor(sqrt(a)) == sqrt(a) && ceil(sqrt(a)) == sqrt(a));
 }
+bool isSquare_shorter(long long a){
+  return((int)sqrt(a)*(int)sqrt(a))==a;
+}
+bool isCube(long long a){
+  long long mid=pow(a,1.0/3.0);
+  return mid*mid*mid==a;
+}
 long long reverseDigits(long long arg){
   long long rev=0;
   while(arg>0){rev*=10;rev+=arg%10;arg/=10;}
