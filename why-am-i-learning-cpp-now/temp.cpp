@@ -2,28 +2,15 @@
 #include"vector"
 using namespace std;
 #define ll long long
-vector<ll>p(2);vector<ll>q;
-ll x=1,limit=4;
-bool is_prime(ll x){
-  for(ll k=2;k<q.size();k++){
-    if(x>q[k]) q[k] += p[k];
-    if(x==q[k]) return false;
+ll sumOfDivisors(ll n){
+  ll sum=0;
+  for(ll i=2;i*i<=n;i++){
+    if(n%i==0){
+      if(i==(n/i)){sum+=i;}else{sum+=(i+(n/i));}
+    }
   }
-  return true;
-}
-void genprs(ll n){
-  while(p.size()<n){
-    do{
-      x+=2;
-      if(x>=limit){
-        p[q.size()+1]=limit;
-        limit = p[q.size()+2]*p[q.size()+2];
-      }
-    }while(not is_prime(x));
-    p[p.size()+1]=x;
-  }
+	return (sum+1);
 }
 int main(){
-  genprs(10);
-  for(ll i=0;i<10;i++){cout<<p[i]<<" ";}
+  long long n;cin>>n;cout<<sumOfDivisors(n);
 }

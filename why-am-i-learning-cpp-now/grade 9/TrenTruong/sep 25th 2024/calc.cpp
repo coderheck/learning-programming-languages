@@ -2,6 +2,7 @@
 using namespace std;
 #define ll long long
 ll n;
+
 int main(){
   if(fopen("calc.inp","r")){
     freopen("calc.inp","r",stdin);
