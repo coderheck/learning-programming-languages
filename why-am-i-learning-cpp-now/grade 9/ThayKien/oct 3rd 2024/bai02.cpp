@@ -10,7 +10,9 @@ int main(){
   for(int i=0;i<m;i++){cin>>b[i];}
   sort(a,a+n);sort(b,b+m);
   while(i<n&&j<m){
-    if(a[i]>b[j]){c++;i++;j++;}else{i++;}
+    if(a[i]==b[j]){
+      c++;i++;j++;
+    }else(a[i]>b[j])?j++:i++;
   }
-  cout<<c;
+  cout<<m-c;
 }
