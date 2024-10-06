@@ -59,17 +59,25 @@ long double heron(long double a, long double b, long double c){
   long double s=(a+b+c)/2;
   return sqrt(s*(s-a)*(s-b)*(s-c));
 }
-int BinarySearch(int a[],int l,int r,int x){
+int RecursiveBinarySearch(int a[],int l,int r,int x){
 	if(r>=l){
 		int m=l+(r-l)/2;
 		if(a[m]==x){return m;}else{
 			if(a[m]>x){
-        return BinarySearch(a,l,m-1,x);
+        return RecursiveBinarySearch(a,l,m-1,x);
       }else{
-				return BinarySearch(a,m+1,r,x);
+				return RecursiveBinarySearch(a,m+1,r,x);
 			}
 		}
 	}else{return -1;}
+}
+int IterativeBinarySearch(int a[],int l,int r,int x){
+  while(l<=r){
+    int m=l+(r-l)/2;
+    if(a[m]==x)return m;
+    if(a[m]<x){l=m+1;}else{r=m-1;}
+  }
+  return -1;
 }
 long long countDivisors(long long n){
   long long d=0;
