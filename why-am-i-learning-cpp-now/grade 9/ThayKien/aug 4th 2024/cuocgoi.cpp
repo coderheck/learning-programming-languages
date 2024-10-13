@@ -1,16 +1,17 @@
 #include"iostream"
 using namespace std;
 #define ll long long
-ll n,k,a[100000],b[100000],cnt[100000];bool f=false;
-bool bacthang(long long n){
-  long long c=9;
-  while(n>0){
-    if(n%10>c)
-      return false;
-    c=n%10;n/=10;
+bool bacthang(ll a){
+  if(a<10){return false;}
+  int r=a%10,l=(a/10)%10;
+  while(a!=0&&a/10!=0){
+    if(r<=l){return false;}
+    a/=10;
+    r=a%10,l=(a/10)%10;
   }
   return true;
 }
+ll n,k,a[100000],b[100000],cnt[100000];bool f=false;
 int main(){
   cin>>n>>k;
   for(ll i=1;i<=n;i++){cin>>a[i];}
