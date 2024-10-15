@@ -1,4 +1,5 @@
 #include"iostream"
+#include"climits"
 using namespace std;
 #define Nmax 1000000
 int a[Nmax],cnt[Nmax],n,m;
