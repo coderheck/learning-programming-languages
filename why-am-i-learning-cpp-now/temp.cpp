@@ -1,15 +1,14 @@
 #include"iostream"
 using namespace std;
-#define maxn 1000000
-int n,res=0,s,a[maxn+5],cnt[maxn+5],sum[maxn+5];
-int main(){
-  cin>>n>>s;
-  cnt[0]=1;
-  for(int i=0;i<n;i++){
-    cin>>a[i];
-    sum[i]=sum[i-1]+a[i];
-    if(sum[i]>=s){res+=cnt[sum[i]-s];}
-    cnt[sum[i]]++;
+#define maxn 100000000
+bool pr[maxn+1];
+void prSieve(){
+  for(int i=2;i<maxn;i++){pr[i]=true;}
+  pr[0]=pr[1]=false;
+  for(int i=2;i*i<=maxn;i++){
+    if(pr[i]){
+      for(int j=i*i;j<=maxn;j+=i){pr[j]=false;}
+    }
   }
-  cout<<res;
 }
+int main(){prSieve();cout<<pr[97381];}
