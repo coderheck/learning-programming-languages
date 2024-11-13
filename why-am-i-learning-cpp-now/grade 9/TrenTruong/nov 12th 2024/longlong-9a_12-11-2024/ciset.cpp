@@ -2,7 +2,7 @@
 using namespace std;
 #define ll long long
 #define maxN 5000
-int n,a[maxN+1];
+ll n,a[maxN+5],dem[maxN+5],ans=0;
 int main(){
   if(fopen("ciset.inp","r")){
     freopen("ciset.inp","r",stdin);
@@ -10,15 +10,14 @@ int main(){
   }
   cin>>n;
   for(int i=0;i<n;i++){cin>>a[i];}
-  for(int x=0;x<n;x++){
-    int ans=0;
-    for(int i=2;i<x;i++){
-      for(int j=1;j<i;j++){
-        for(int k=0;k<j;k++){
-          if(a[i]+a[j]+a[k]==a[x]){ans++;}
+  for(int i=0;i<n-3;i++){
+    for(int j=i+1;j<n-2;j++){
+      for(int k=j+1;k<n-1;k++){
+        for(int x=k+1;x<n;x++){
+          if(a[i]+a[j]+a[k]==a[x]){dem[x]++;}
         }
       }
     }
-    cout<<ans<<" ";
   }
+  for(int i=0;i<n;i++){cout<<dem[i]<<" ";}
 }

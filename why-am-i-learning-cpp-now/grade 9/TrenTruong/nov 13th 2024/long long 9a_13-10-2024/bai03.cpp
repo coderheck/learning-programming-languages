@@ -1,6 +1,5 @@
 #include"iostream"
 #include"cmath"
-#include"climits"
 using namespace std;
 #define ll long long
 ll n;
@@ -14,11 +13,11 @@ ll cp(ll x){
   return(a*a==x);
 }
 int main(){
-  if(fopen("temp.inp","r")){
-    freopen("temp.inp","r",stdin);
-    //freopen("temp.out","w",stdout);
+  if(fopen("bai03.inp","r")){
+    freopen("bai03.inp","r",stdin);
+    freopen("bai03.out","w",stdout);
   }
-  n=LLONG_MAX-2;
+  cin>>n;
   ll tc=tcs(n);
   (cp(tc))?cout<<tc:cout<<tc%11;
 }
