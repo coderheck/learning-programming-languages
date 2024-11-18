@@ -1,24 +1,36 @@
-#include"iostream"
-#include"cmath"
-#include"climits"
+// C++ implementation to find the length of 
+// longest increasing contiguous subarray
+#include <bits/stdc++.h>
+
 using namespace std;
-#define ll long long
-ll n;
-ll tcs(ll x){
-  ll ret=0;
-  while(x!=0){ret+=x%10;x/=10;}
-  return ret;
+
+// function to find the length of longest increasing 
+// contiguous subarray
+int lenOfLongIncSubArr(int arr[], int n)
+{
+	int max = 1, len = 1;
+	for (int i=1; i<n; i++)
+	{
+		if (arr[i] > arr[i-1])
+			len++;
+		else
+		{
+			if (max < len) 
+				max = len;
+			len = 1; 
+		} 
+	}
+	if (max < len)
+		max = len;
+	return max;
 }
-ll cp(ll x){
-  ll a=sqrt(x);
-  return(a*a==x);
-}
-int main(){
-  if(fopen("temp.inp","r")){
-    freopen("temp.inp","r",stdin);
-    //freopen("temp.out","w",stdout);
-  }
-  n=LLONG_MAX-2;
-  ll tc=tcs(n);
-  (cp(tc))?cout<<tc:cout<<tc%11;
+
+// Driver program to test above
+int main()
+{
+	int arr[] = {5, 6, 3, 5, 7, 8, 9, 1, 2};
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << "Length = "
+		<< lenOfLongIncSubArr(arr, n);
+	return 0;	 
 }
