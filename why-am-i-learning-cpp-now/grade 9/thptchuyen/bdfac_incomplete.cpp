@@ -1,36 +1,33 @@
 #include"iostream"
-#include"string"
+#include"vector"
 using namespace std;
-#define maxN 1000001
-bool pr[maxN],b[maxN];
+const int maxN=1000;
+int n;
+vector<int>prs,ispr(maxN+1,true);
 void prSieve(){
-  for(int i=2;i<maxN;i++){pr[i]=true;}
-  pr[0]=pr[1]=false;
+  ispr[0]=ispr[1]=false;
   for(int i=2;i*i<=maxN;i++){
-    if(pr[i]){
-      for(int j=i*i;j<=maxN;j+=i){pr[j]=false;}
+    if(ispr[i]){
+      prs.push_back(i);
+      for(int j=i*i;j<=maxN;j+=i){ispr[j]=false;}
     }
   }
 }
-bool nt(int n){
-  return pr[n];
+int countExp(int n1,int p){
+  int c=0;
+  while(n1>0){n1/=p;c+=n1;}
+  return c;
 }
-void pt(int x) {
-  int d=2;
-  while(d*d<=x){
-    if(x%d==0){b[d]=true;x/=d;}else{d++;}
+void compute(){
+  for(int pr:prs){
+    if(pr>n){break;}
+    int c=countExp(n,pr);
+    if(c>0){cout<<c;}
   }
-  b[x]=true;
+  cout<<"\n";
 }
 int main(){
   prSieve();
-  string res("");
-  int n;cin>>n;
-  for(int i=1;i<=maxN;i++){b[i]=false;}
-  for(int i=2;i<=n;i++){pt(i);}
-  for(int j=2;j<=n;j++) {
-    if(nt(j)&&b[j]!=0) {
-      cin>>b[j];
-    }
-  }
+  cin>>n;
+  compute();
 }

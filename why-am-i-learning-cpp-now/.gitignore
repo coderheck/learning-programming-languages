@@ -1,4 +1,4 @@
-random.cpp
+random*.cpp
 *.exe
 *.txt
 *.o
