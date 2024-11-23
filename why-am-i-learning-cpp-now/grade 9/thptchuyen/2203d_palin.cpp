@@ -14,15 +14,13 @@ bool ispl(int l,int r){
   return true;
 }
 ull fastpowmod(ull a,ull b){
-  if(a==0){return 1;}
-  if(b==1){return a;}
-  ull temp=fastpowmod(a,b/2);
-  if(b%2==0)
-    return(temp%MOD*temp%MOD)%MOD;
-  else
-    return(
-      ((temp%MOD * temp%MOD)%MOD) * a%MOD
-    ) % MOD;
+  ull res=1; a%=MOD;
+  if(a==0)return 0;
+  while(b>0){
+    if(b&1){res=(res*a)%MOD;}
+    b>>=1; a=(a*a)%MOD;
+  }
+  return res;
 }
 ull modMulInv(ull n){return fastpowmod(n,MOD-2);}
 void prefixHash(){
