@@ -1,9 +1,9 @@
 #include"iostream"
 #include"cstring"
 using namespace std;
-const int MAX_N=1000;
-const int MAX_PRIME=1000;
-int prs[MAX_PRIME],prC=0,a[MAX_N],iC=0,N,maxN=0;
+const int MAX_N=100000;
+const int MAX_PRIME=1000000;
+int prs[MAX_PRIME],prC=0,a[MAX_N],iC=0,N,maxN=0,res=0;
 void sieve(){
   bool ispr[MAX_PRIME+1];
   memset(ispr,true,sizeof(ispr));
@@ -32,7 +32,7 @@ int main(){
     for(int j=0;j<prC;j++) {
       if(prs[j]>a[i]){break;}
       int c=countExp(a[i],prs[j]);
-      if(c>0){cout<<c;}
+      if(c>0){res+=c;}
     }
     cout<<"\n";
   }
