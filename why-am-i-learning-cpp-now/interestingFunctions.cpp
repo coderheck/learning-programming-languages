@@ -163,6 +163,14 @@ void parallelCountSort(std::vector<long long>&arr, long long n){
     for(long long i=0;i<n;i++){countSortExp(arr,n,exp);}
   }
 }
+std::vector<int>SumOfDivisorsSieve(){
+  int maxN=1000000;
+  vector<int>sumdiv(maxN+1,0);
+  for(int i=1;i<=maxN;i++){
+    for(int j=i;j<=maxN;j+=i){sumdiv[j]+=i;}
+  }
+}
+
 using namespace std;
 int main(){
   PrintPrimeFactors(2354353454);
