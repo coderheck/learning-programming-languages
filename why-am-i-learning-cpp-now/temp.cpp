@@ -1,23 +1,25 @@
-#include"iostream"
+#include"stdio.h"
+#include"unordered_map"
+#include"vector"
 using namespace std;
-#define maxN 1000000
-int n,a,sumdiv[maxN+1];
-void sumOfDivs(){
-  for(int i=1;i<=maxN;i++){sumdiv[i]=1;}
-  sumdiv[0]=0;
-  for(int i=2;i<=maxN;i++){
-    for(int j=i;j<=maxN;j+=i){sumdiv[j]+=i;}
+#define ll long long
+int n,res=0,mod[10000005];
+ll a[1000005],k;
+void get_count() {
+  mod[0] = 1;
+  int pref_sum = 0;
+  for (ll elem : a) {
+    pref_sum += elem;
+    pref_sum %= k;
+    mod[pref_sum]++;
   }
+  long long res = 0;
+  for (int cock = 0; cock < k; cock++)
+    res += (long long)mod[cock] * (mod[cock] - 1) / 2;
+  printf("%lld",res);
 }
-int main(){
-  ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  freopen("temp.inp","r",stdin);
-  freopen("temp.out","r",stdout);
-  sumOfDivs();
-  cin>>n;
-  for(int i=0;i<n;i++){
-    cin>>a;
-    cout<<(2*a<=sumdiv[a])<<"\n";
-  }
+int main(){ 
+  scanf("%d%lld",&n,&k);
+  for(int i=0;i<n;i++){scanf("%lld",&a[i]);}
+  get_count();
 }
