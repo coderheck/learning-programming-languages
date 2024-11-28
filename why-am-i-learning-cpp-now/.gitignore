@@ -1,5 +1,5 @@
 random*.cpp
-temp.cpp
+*temp*
 *.exe
 *.txt
 *.o

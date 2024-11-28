@@ -1,25 +1,47 @@
-#include"stdio.h"
-#include"unordered_map"
-#include"vector"
+#include"iostream"
 using namespace std;
 #define ll long long
-int n,res=0,mod[10000005];
-ll a[1000005],k;
-void get_count() {
-  mod[0] = 1;
-  int pref_sum = 0;
-  for (ll elem : a) {
-    pref_sum += elem;
-    pref_sum %= k;
-    mod[pref_sum]++;
+ll fastpowmod(ll a, unsigned ll b, ll c){
+  ll res=1; a%=c;
+  if(a==0)return 0;
+  while(b>0){
+    if(b&1){res=(res*a)%c;}
+    b>>=1; a=(a*a)%c;
   }
-  long long res = 0;
-  for (int cock = 0; cock < k; cock++)
-    res += (long long)mod[cock] * (mod[cock] - 1) / 2;
-  printf("%lld",res);
+  return res;
 }
-int main(){ 
-  scanf("%d%lld",&n,&k);
-  for(int i=0;i<n;i++){scanf("%lld",&a[i]);}
-  get_count();
+bool millerTest(ll d,ll n){
+	ll a=2+rand()%(n-4);
+	ll x=fastpowmod(a,d,n);
+	if(x==1||x==n-1)
+	  return true;
+	while(d!=n-1){
+		x=(x*x)%n; d*=2;
+		if(x==1)return false;
+		if(x==n-1)return true;
+	}
+	return false;
+}
+bool isPrime(ll n){
+  int k=4;
+	if(n<=1||n==4)
+    return false;
+	if(n<=3)
+    return true;
+	ll d=n-1;
+	while(d%2==0){d/=2;}
+	for (int i=1;i<=k;i++)
+		if(!millerTest(d,n))
+			return false;
+	return true;
+}
+int t;
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+	cin>>t;
+	for(int i=1;i<=t;i++){
+    ll a;cin>>a;
+    (isPrime(a))?cout<<"YES\n":cout<<"NO\n";
+  }
 }
