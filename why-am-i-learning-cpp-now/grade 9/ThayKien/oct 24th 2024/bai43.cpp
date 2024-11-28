@@ -20,6 +20,7 @@ void s2(){
 int main(){
   cin>>x;
   n=x.size();
+  s1();
   s2();
 }
 
@@ -39,3 +40,4 @@ int main(){
 //         else st.insert(st.begin()+0,s[i]);
 //     }
 //     cout<<st;
+// }
