@@ -16,6 +16,6 @@ int main(){
   }
   while(q--){
     cin>>d>>c;
-    cout<<evenCnt[c]-evenCnt[d-1]<<"\n";
+    cout<<evenCnt[c]-evenCnt[d-1]<<" ";
   }
 }

@@ -9,3 +9,5 @@ random*.cpp
 LeHoangLong*
 *tempCodeRunnerFile*
 *incomplete*
+*.bin
+.cph
