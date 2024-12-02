@@ -24,4 +24,5 @@ int main(){
       cout<<res;exit(0);
     }
   }
+  cout<<res;
 }

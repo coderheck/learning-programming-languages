@@ -1,21 +1,13 @@
-// C program to demonstrate that size_t or
-// any unsigned int type should be used
-// carefully when used in a loop.
-#include <stdio.h>
-
-#define N 10
-
-int main()
-{
-    int a[N];
-
-    // This is fine.
-    for (size_t n = 0; n < N; ++n) {
-        a[n] = n;
+#include"iostream"
+int fastpowmod(int a,int b,int c){
+    int res=1;a%=c;
+    if(a==0)return 0;
+    while(b>0){
+        if(b%2==1){res=(res*a)%c;}
+        b/=2;a=(a*a)%c;
     }
-
-    // But reverse cycles are tricky for unsigned
-    // types as they can lead to infinite loops.
-    for (size_t n = N - 1; n >= 0; --n)
-        printf("%d ", a[n]);
+    return res;
+}
+int main(){
+    std::cout<<fastpowmod(3,4,5);
 }
