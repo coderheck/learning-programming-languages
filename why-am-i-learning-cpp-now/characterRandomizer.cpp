@@ -13,7 +13,7 @@ void parse(){
   }
 }
 int main(){
-  freopen("temp.inp","r",stdin);
-  freopen("temp.out","w",stdout);
+  // freopen("temp.inp","r",stdin);
+  // freopen("temp.out","w",stdout);
   parse();
 }
