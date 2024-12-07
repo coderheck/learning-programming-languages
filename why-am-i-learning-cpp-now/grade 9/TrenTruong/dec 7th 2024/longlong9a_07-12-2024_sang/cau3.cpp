@@ -2,24 +2,26 @@
 #include"cmath"
 using namespace std;
 #define maxN 1000000
-int SecureContainProtect[maxN+5];
+#define ll long long
+int scp[maxN+5];int n;ll a,res=1;
 void preproc(){
-  SecureContainProtect[0]=0;
-  for(int i=1;i*i<=maxN;i++){
-    SecureContainProtect[i*i]=1;
-  }
+  for(int i=1;i*i<=maxN;i++){scp[i*i]=1;}
 }
-int n,a;
+bool isSCP(ll x){
+  ll sq=sqrt(x);
+  return(sq*sq==x);
+}
 int main(){
   preproc();
   cin>>n;
   for(int i=1;i<=n;i++){
     cin>>a;
-    if(SecureContainProtect[a]==1){
-      SecureContainProtect[a]=2;
-    }
+    if(scp[a]==1&&a<=1000000){scp[a]=2;}
   }
-  for(int i=1;i<=maxN;i++){
-    if(SecureContainProtect[i]==1){cout<<i;exit(0);}
+  while(true){
+    if(isSCP(res)&&(res>1000000||scp[res]==1)){
+      cout<<res;exit(0);
+    }
+    res++;
   }
 }
