@@ -2,8 +2,7 @@
 #include"windows.h"
 using namespace std;
 int main(){
-  while(1){
-    cout<<"KBC ";
-    Sleep(50);
-  }
+  std::cout<<" /\\_/\\"<<"\n";
+  std::cout<<"( o.o )"<<"\n";
+  std::cout<<" > ^ <"<<"\n";
 }
