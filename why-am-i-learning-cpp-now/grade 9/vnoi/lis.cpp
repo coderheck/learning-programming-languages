@@ -1,7 +1,8 @@
 #include"stdio.h"
 #include"algorithm"
 using namespace std;
-int a[1005],ans[1005],n,res=0;
+long long a[30005],ans[30005];
+int n,res=0;
 void parse(){
   ans[res++]=a[0];
   for(int i=1;i<n;i++) {
@@ -17,6 +18,6 @@ void parse(){
 }
 int main(){
   scanf("%d",&n);
-  for(int i=0;i<n;i++){scanf("%d",&a[i]);}
+  for(int i=0;i<n;i++){scanf("%lld",&a[i]);}
   parse();
 }

@@ -2,8 +2,7 @@
 using namespace std;
 #define maxN 100000
 #define ll long long
-ll n;
-int a[maxN+5],cnt[maxN+5],sum[maxN+5];
+ll n,a[maxN+5];
 void solve(){
   ll resSt=0,resEnd=0,curSt=0;
   int maxS=a[0],maxEnd=a[0];
@@ -25,6 +24,6 @@ int main(){
   ios_base::sync_with_stdio(0);
   cin.tie(0);
   cin>>n;
-  for(int i=1;i<=n;i++){cin>>a[i];}
+  for(ll i=1;i<=n;i++){cin>>a[i];}
   solve();
 }
