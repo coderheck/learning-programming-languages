@@ -13,8 +13,8 @@ int main(){
         pos[s[i]]=i+1;
       }else if(pos[s[i]]!=0){pos[s[i]]=-1;}
     }
-    for(auto c:pos){
-      if(c.second!=0&&c.second!=-1){cout<<c.second<<"\n";f=true;break;}
+    for(char c='a';c<='z';c++){
+      if(pos[c]!=0&&pos[c]!=-1){cout<<pos[c]<<"\n";f=true;break;}
     }
     if(!f){cout<<"-1\n";}
   }
