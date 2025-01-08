@@ -15,3 +15,36 @@ int main(){
   }
   cout<<res;
 }
+/// ta nhận thấy rằng một số muốn có số dư lớn nhất thì phải xét số đó / 2
+/// ví dụ: 5 / 2 = 2; thì số 3 sẽ là số có số dư lớn nhất đối với 5
+/// ví dụ: 6 / 2 = 3; thì số 4 sẽ là số có số dư lớn nhất đối với 6
+/// bài này sẽ áp dụng phương pháp đó kết hợp với tìm kiếm nhị phân là AC
+/// nếu như không nghĩ ra tìm kiếm nhị phân như nào thì nhìn ở dòng thứ 50 nhé
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// --- tìm kiếm nhị phân sẽ phải tìm số > a[i] / 2 nhỏ nhất ---
