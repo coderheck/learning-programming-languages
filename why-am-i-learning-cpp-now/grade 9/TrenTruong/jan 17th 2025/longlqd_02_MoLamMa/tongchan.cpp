@@ -1,17 +1,15 @@
-#include"iostream"
-using namespace std;
+#include<iostream>
 #define ll long long
-int n,res=0,l=0,c=0,a;
-ll t=0;
+using namespace std;
+ll t=0,l,c,x;int n;
 int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
   cin>>n;
   while(n--){
-    cin>>a;t+=a;
-    (a&1)?l++:c++;
+    cin>>x;
+    x%=2;
+    if(x&1){l++;t=(t+1)%2;}else{c++;}
   }
-  if(t&1){
-    cout<<l*c;
-  }else{
-    cout<<c*(c-1)/2+l*(l-1)/2;
-  }
+  if(t&1){cout<<l*c;}else{cout<<l*(l-1)/2+c*(c-1)/2;}
 }
