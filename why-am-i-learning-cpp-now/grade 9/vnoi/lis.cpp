@@ -1,7 +1,8 @@
 #include"stdio.h"
 #include"algorithm"
 using namespace std;
-long long a[30005],ans[30005];
+#define maxN 30005
+long long a[maxN+5],ans[maxN+5];
 int n,res=0;
 void parse(){
   ans[res++]=a[0];
