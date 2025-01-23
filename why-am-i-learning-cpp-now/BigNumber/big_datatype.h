@@ -75,8 +75,11 @@ void equalize_length(big &a, big &b){
 bool operator < (big a, big b){
     equalize_length(a, b);
     for(int i=0;i<a.size();i++){
-        if (a[i] < b[i]){return true;}
-        else if (a[i] > b[i]){return false;}
+        if(a[i]<b[i]){
+            return true;
+        }else if(a[i]>b[i]){
+            return false;
+        }
     }
     return false;
 }
@@ -181,7 +184,7 @@ big operator / (big a, big b) {
     big c,l,r=a,one=int_to_big(1);
     c.push_back(0); l.push_back(1);
     while(l<=r){
-        big mid=(l+r)/2;
+        big mid=l+(r-l)/2;
         if (mid*b<=a){
             c=mid;l=mid+one;
         }else{
