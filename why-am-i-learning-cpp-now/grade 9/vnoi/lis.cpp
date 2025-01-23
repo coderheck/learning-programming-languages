@@ -8,8 +8,7 @@ void parse(){
   ans[res++]=a[0];
   for(int i=1;i<n;i++) {
     if(a[i]>ans[res-1]){
-      ans[res]=a[i];
-      res++;
+      ans[res++]=a[i];
     }else{
       int l=lower_bound(ans,ans+res,a[i])-ans;
       ans[l]=a[i];
