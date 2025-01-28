@@ -1,19 +1,17 @@
 #include"iostream"
+#include"string"
 using namespace std;
-#define ll long long
-int n;
-ll a[1000005];
-ll max(ll a,ll b){return(a>b)?a:b;}
-void solve(){
-  ll res=a[0],maxEnd=a[0];
-  for(int i=1;i<n;i++){
-    maxEnd=max(maxEnd+a[i],a[i]);
-    res=max(res,maxEnd);
-  }
-  cout<<res;
-}
+string s,deco;
 int main(){
-  cin>>n;
-  for(int i=0;i<n;i++){cin>>a[i];}
-  solve();
+  freopen("temp.inp","r",stdin);
+  cin>>s;
+  for(int i=0;i<s.size();i++){if(s[i]=='#'){s.erase(i,1);}}
+  for(int i=0;i<s.size();i++){
+    if(s[i]=='&'){
+      int c=0;i++;
+      while(s[i]!=';'){c=c*10+s[i++]-'0';}
+      deco.push_back((char)c);
+    }
+  }
+  cout<<deco;
 }
