@@ -9,12 +9,12 @@ int main(){
   char buffer[256];
   DWORD buffersize=sizeof(buffer);
   if(ERROR_SUCCESS==RegGetValueA(HKEY_CLASSES_ROOT,subkey,valname,RRF_RT_REG_SZ,nullptr,buffer,&buffersize)){
-    cout<<"Value: "<<buffer<<"\n";
+    cout<<"version: "<<buffer<<"\n";
   }else{
     cerr<<"fucking dies";
     return 1;
   }
-  fs::path robloxPath="C:/Program Files (x86)/Roblox/Versions";
+  fs::path robloxPath="C:\\Program Files (x86)\\Roblox\\Versions";
   robloxPath/=buffer; //append version
   robloxPath/="ClientSettings"; //append "ClientSettings"
   error_code err;
@@ -27,12 +27,17 @@ int main(){
     }
     cout<<"delete success\n";
   }
-  fs::path srcPath="ClientSettings"; //folder to copy
+  fs::path srcPath="ClientSettings/ClientAppSettings.json"; //file to copy
   try{
-    fs::copy(srcPath,robloxPath,fs::copy_options::recursive|fs::copy_options::overwrite_existing);
+    fs::create_directories(robloxPath);
+  }catch(const fs::filesystem_error &e){
+    cerr<<"sum shit happened while making new ClientSettings folder: "<<e.what();
+  }
+  try{
+    fs::copy_file(srcPath,robloxPath/srcPath.filename(),fs::copy_options::overwrite_existing);
   }catch(const fs::filesystem_error &e){
     cerr<<"sum shit happened while copying new ClientSettings: "<<e.what();
     return 1;
   }
-  cout<<"success";
+  cout<<"copy ClientSettings success";
 }
