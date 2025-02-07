@@ -1,9 +1,8 @@
 #include"iostream"
-#include"windows.h"
-#include"filesystem"
+#include"string"
 using namespace std;
+string s="Alyx";int r=0;
 int main(){
-  wchar_t path[2048]={0};
-  GetModuleFileNameW(nullptr,path,2048);
-  cout<<std::filesystem::path(path).parent_path();
+  for(char c:s){r+=(int)c;}
+  cout<<r<<" "<<(r%3==0);
 }
