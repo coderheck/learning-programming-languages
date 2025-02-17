@@ -1,12 +1,16 @@
 #include"iostream"
 using namespace std;
 #define ll long long
-int n,d;ll a,b,res;
-void compute(){
-  res+=(a-b+d)/d;b=a+d;
-}
+ll n,d,res=0,a[10000005],k;
 int main(){
   cin>>n>>d;
-  while(n--){cin>>b;if(a>=b){compute();}a=b;}
+  cin>>a[0];
+  for(int i=1;i<n;i++){
+    cin>>a[i];
+    if(a[i-1]>=a[i]){
+      k=(a[i-1]-a[i])/d+1;
+      res+=k;a[i]+=k*d;
+    }
+  }
   cout<<res;
 }

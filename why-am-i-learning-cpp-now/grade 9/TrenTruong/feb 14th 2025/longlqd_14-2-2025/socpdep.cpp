@@ -22,7 +22,9 @@ int main(){
   ios::sync_with_stdio(0);cin.tie(0);
   preproc();
   cin>>a>>b;
-  for(int i=sqrt(a);i*i<=b;i++){
+  ll acheck=sqrt(a);
+  if(acheck*acheck!=a){a=acheck+1;}else{a=acheck;}
+  for(int i=a;i*i<=b;i++){
     if(!pr[i]&&isPalin(i)){c++;}
   }
   cout<<c;
