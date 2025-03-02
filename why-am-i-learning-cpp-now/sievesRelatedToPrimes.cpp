@@ -15,9 +15,9 @@ void prSieve(){
 int main(){
   prSieve();
 
-  vector<int>divs(maxN+1,0);
+  vector<int>divs(maxN+1,1);
   for(int i=1;i<=maxN;i++){
-    for(int j=i;j<=maxN;j+=i){divs[j]++;}
+    for(int j=i*2;j<=maxN;j+=i){divs[j]++;}
   }
 
   vector<int>sumdiv(maxN+1,0);
@@ -25,5 +25,5 @@ int main(){
     for(int j=i;j<=maxN;j+=i){sumdiv[j]+=i;}
   }
 
-  cout<<sumdiv[5];
+  cout<<divs[1000000];
 }
