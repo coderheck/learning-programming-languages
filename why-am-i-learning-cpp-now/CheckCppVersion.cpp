@@ -15,4 +15,5 @@ int main() {
   }else{
     std::cout << "pre-standard C++";
   }
+  std::cout << "\n" << __cplusplus;
 }
