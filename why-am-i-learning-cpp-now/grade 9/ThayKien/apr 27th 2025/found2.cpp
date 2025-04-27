@@ -1,0 +1,17 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+#define ll long long
+ll n,m,x,a[100005];
+int main(){
+  cin.tie(0);ios::sync_with_stdio(0);
+  cin>>n>>m;
+  for(ll i=0;i<n;i++){cin>>a[i];}
+  sort(a,a+n);
+  while(m--){
+    cin>>x;
+    ll fpos=lower_bound(a,a+n,x)-a;
+    ll lpos=upper_bound(a,a+n,x)-a;
+    cout<<lpos-fpos<<"\n";
+  }
+}
