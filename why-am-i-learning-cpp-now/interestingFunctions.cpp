@@ -1,5 +1,5 @@
-#include"iostream"
-#include"math.h"
+#include <iostream>
+#include <math.h>
 void fastscan(int &number){
     // variable to indicate sign of input number
     bool negative = false;
@@ -57,7 +57,7 @@ void eratosthenes_sieve(bool arr[],unsigned long long n){
     }
   }
 }
-#include "vector"
+#include <vector>
 std::vector<int> dijkstraPrimeAlgorithm(int numberOfPrimes){ // this requires the vector library, also this isnt complete
   std::vector <int> primes = {2}, Q; int x=1, limit=4;
   auto is_prime=[&](int x){

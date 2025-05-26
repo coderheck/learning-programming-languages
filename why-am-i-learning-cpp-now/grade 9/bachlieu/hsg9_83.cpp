@@ -1,20 +1,17 @@
-#include"iostream"
-#include"map"
-#include"string"
+#include<iostream>
+#include<string>
 using namespace std;
-string s1,s2;
-char cnt1[260],cnt2[260];
-int res=0;
-int max(int a,int b){return(a>b)?a:b;}
-int min(int a,int b){return(a<b)?a:b;}
+#define ll long long
+ll max(const ll &a,const ll &b){return(a>b)?a:b;}
+ll min(const ll &a,const ll &b){return(a<b)?a:b;}
+string s1,s2;ll c1[260],c2[260],res=0;
 int main(){
-  cin>>s1>>s2;
-  for(char d:s1){cnt1[d]++;}
-  for(char d:s2){cnt2[d]++;}
-  for(char i='a';i<='z';i++){
-    if(cnt1[i]>0&&cnt2[i]>0){
-      res+=max(cnt1[i],cnt2[i])-min(cnt1[i],cnt2[i]);
-    }
+  for(ll i=0;i<260;i++){c1[i]=c2[i]=0;}
+  getline(cin,s1);getline(cin,s2);
+  for(ll i=0;i<s1.size();i++){c1[s1[i]]++;}
+  for(ll i=0;i<s2.size();i++){c2[s2[i]]++;}
+  for(ll i='a';i<='z';i++){
+    res+=max(c1[i],c2[i])-min(c1[i],c2[i]);
   }
   cout<<res;
 }

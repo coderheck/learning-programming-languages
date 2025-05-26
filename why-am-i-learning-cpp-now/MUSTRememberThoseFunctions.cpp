@@ -45,10 +45,10 @@ bool isPerfect_optimized(long long n){
   return(n==sum-n);
 }
 long long gcd(long long a, long long b){
-  return b == 0 ? a : gcd(b, a % b);
+  return !b ? a : gcd(b, a % b); // !b is short for b == 0, accounting for b < 0
 }
 long long lcm(long long a, long long b){
-  return (a/gcd(a,b))*b;
+  return (a / gcd(a, b)) * b;
 }
 long long countDigits(long long arg){
   int c=0;
@@ -60,16 +60,18 @@ long double heron(long double a, long double b, long double c){
   return sqrt(s*(s-a)*(s-b)*(s-c));
 }
 int RecursiveBinarySearch(int a[],int l,int r,int x){
-	if(r>=l){
-		int m=l+(r-l)/2;
-		if(a[m]==x){return m;}else{
-			if(a[m]>x){
-        return RecursiveBinarySearch(a,l,m-1,x);
+  if(r>=l){
+    int m=l+(r-l)/2;
+    if(a[m]==x){
+      return m;
+    }else{
+      if(a[m]>x){
+	return RecursiveBinarySearch(a,l,m-1,x);
       }else{
-				return RecursiveBinarySearch(a,m+1,r,x);
-			}
-		}
-	}else{return -1;}
+	return RecursiveBinarySearch(a,m+1,r,x);
+      }
+    }
+  }else{return -1;}
 }
 int IterativeBinarySearch(int a[],int l,int r,int x){
   while(l<=r){
@@ -119,7 +121,7 @@ long long fastpowmod(long long a, unsigned long long b, long long c){
   long long res=1; a%=c;
   if(a==0)return 0;
   while(b>0){
-    if(b&1){res=(res*a)%c;} // b & 1 == !(b % 2)
+    if(b&1){res=(res*a)%c;} // b & 1 == !(b % 2) == (b % 2 == 1)
     b>>=1; a=(a*a)%c;  // b >>= 1 == b /= 2
   }
   return res;
