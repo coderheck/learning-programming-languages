@@ -15,6 +15,7 @@ int main(int argCount, char *argValue[]){
 		system("\"C:\\Users\\longnuub\\Documents\\rocky names.txt\"");
 		return 0;
 	}else if(argCount==2&&strcmp(argValue[1],"--file")==0){
+		cout<<"open file argument found first, ignoring other arguments";
 		system("\"C:\\Users\\longnuub\\Documents\\rocky names.txt\"");
 		return 0;
 	}else{

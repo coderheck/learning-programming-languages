@@ -1,33 +1,15 @@
 #include<iostream>
-#include<vector>
 #include<string>
-#include<algorithm>
 using namespace std;
 #define ll long long
-bool cmpfn(const string &a,const string &b){
-  if(a.size()!=b.size()){
-    return a.size()<b.size();
-  }else{
-    return a<b;
-  }
-}
-vector<string>res;ll k;
-void binge(string s){
-  if(res.size()>=k){return;}
-  if(s.size()>0&&s.size()%2==0){
-    res.push_back(s);
-    if(res.size()==k){return;}
-  }
-  if(s.size()>18){return;}
-  for(char c='1';c<='9';c++){
-    binge(c+s+c);
-    if(res.size()>=k){return;}
-  }
-}
+ll k,l=2,c=9,half=1;string res;
 int main(){
-  binge("");
-  sort(res.begin(),res.end(),cmpfn);
   cin>>k;
-  cout<<res[k-1];
+  while(k>c){k-=c,l+=2,c*=10;}
+  for(ll i=1;i<l/2;i++){half*=10;}
+  half+=k-1;
+  res=to_string(half);
+  for(ll i=0;i<res.size();i++){cout<<res[i];}
+  for(ll i=res.size()-1;i>=0;i--){cout<<res[i];}
 }
 
