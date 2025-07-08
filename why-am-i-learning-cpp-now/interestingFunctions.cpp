@@ -170,7 +170,20 @@ std::vector<int>SumOfDivisorsSieve(){
     for(int j=i;j<=maxN;j+=i){sumdiv[j]+=i;}
   }
 }
-
+void LinearPrimeSieve(){
+  const ll n = 10000000;
+  vector<int> minPrimeFac(n+5), pr;
+  for(ll i = 2; i <= n; i++){
+    if(!minPrimeFac[i]){
+      minPrimeFac[i] = i;
+      pr.push_back(i);
+    }
+    for(ll j = 0; i * pr[j] <= n; j++){
+      minPrimeFac[i * pr[j]] = pr[j];
+      if(pr[j] == minPrimeFac[i]){break;}
+    }
+  }
+}
 using namespace std;
 int main(){
   PrintPrimeFactors(2354353454);
