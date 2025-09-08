@@ -1,5 +1,12 @@
 #include <iostream>
+#include <print>
+
 int main() {
+
+  // std::cout << __cplusplus << "\n";
+
+  std::print("{0}\n", __cplusplus);
+
   if(__cplusplus == 202302L){
     std::cout << "C++23";
   }else if(__cplusplus == 202002L){
@@ -13,7 +20,7 @@ int main() {
   }else if(__cplusplus == 199711L){
     std::cout << "C++98";
   }else{
-    std::cout << "non-standard C++";
+    std::cout << "non-standard/experimental C++ version";
   }
-  std::cout << "\n" << __cplusplus;
+
 }
