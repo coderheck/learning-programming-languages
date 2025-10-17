@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h>
+#include <algorithm>
 #define ll long long 
 #define min(a,b) ((a)<(b)?(a):(b))
 void rvArr(ll a[],ll sz){for(ll i=0;i<sz/2;i++){ll m=a[i];a[i]=a[sz-i-1],a[sz-i-1]=m;}}
-ll a,b,k,fb,dp[20][2][200],ds[20],dz=0,tmpres=9223372036854775807,resA=9223372036854775807; // res = LLONG_MAX, de bai khon nan
+ll a,b,k,fb,dp[20][2][200],ds[20],dz=0,anss[100005],ans=0;
 ll sol(ll pos,ll sml,ll sum,ll num){
 	if(pos==dz){
 		ll check=sum==k;
-		if(check){tmpres=min(tmpres,num);}
+		if(check){anss[ans++]=num;}
 		return check;
 	}
 	if(dp[pos][sml][sum]!=-1){return dp[pos][sml][sum];}
@@ -27,6 +28,7 @@ ll f(ll x){
 }
 int main(){
 	scanf("%lld%lld%lld",&a,&b,&k);
-	fb=f(b),resA=tmpres;
-	printf("%lld\n%lld",fb-f(a-1),resA);
+	ll res=f(b)-f(a-1);
+	std::sort(anss,anss+ans);
+	printf("%lld\n%lld",res,anss[0]);
 }
