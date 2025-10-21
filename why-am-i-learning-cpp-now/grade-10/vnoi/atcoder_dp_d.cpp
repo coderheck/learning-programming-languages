@@ -2,17 +2,19 @@
 #include <vector>
 using namespace std;
 #define ll long long 
-#define max(a,b) ((a)>(b)?(a):(b))
-const ll maxN=105;
-ll n,w;vector<ll>wt(maxN),vl(maxN);
+#define min(a,b) ((a)<(b)?(a):(b))
+const ll maxN=100005;
+const ll inf=1000000000007;
+ll n,W;vector<ll>wt(maxN),vl(maxN);
 int main(){
-	scanf("%lld%lld",&n,&w);
+	vector<ll>dp(maxN+5,inf);
+	scanf("%lld%lld",&n,&W);
 	for(ll i=0;i<n;i++){scanf("%lld%lld",&wt[i],&vl[i]);}
-	vector<ll>dp(w+5,0);
-	for(ll i=1;i<=(ll)wt.size();i++){
-		for(ll j=w;j>=wt[i-1];j--){
-			dp[j]=max(dp[j],dp[j-wt[i-1]]+vl[i-1]);
+	dp[0]=0;
+	for(ll i=0;i<n;i++){
+		for(ll j=maxN-1;j>=0;j--){
+			if(dp[j]+wt[i]<=W){min(dp[j+vl[i]],dp[j]+wt[i]);}
 		}
 	}
-	printf("%lld",dp[w]);
+	for(ll i=maxN-1;i>=0;i--){if(dp[i]!=inf){printf("%lld",i);}}
 }
