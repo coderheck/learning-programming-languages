@@ -8,7 +8,7 @@ void cOne(ll x){
 int main(){
 	if(fopen("digits1.inp","r")){
 		freopen("digits1.inp","r",stdin);
-		// freopen("digits1_rac.out","w",stdout);
+		freopen("digits1_rac.out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n;

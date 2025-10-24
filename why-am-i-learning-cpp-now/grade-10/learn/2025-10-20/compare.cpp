@@ -1,23 +1,47 @@
 #include <iostream>
+#include <string>
+#include <random>
+#include <chrono>
 #include <fstream>
-#include <cstdlib>
-#include <ctime>
+#include <cassert>
 using namespace std;
-#define ll long long 
-const ll maxN=1000000;
-ll ntest=5,a;
-int main(){
-	srand(time(0));
-	cin.tie(0)->sync_with_stdio(0);
-	fstream input,log;
-	while(ntest--){
-		input.open("digits1.inp",fstream::out|fstream::trunc);
-		log.open("digits1.log",fstream::out|fstream::app);
-		srand((time(0)+ntest)*ntest);
-		a=(rand()+maxN)%maxN;
-		input<<a;input.close();
-		cout<<a<<"\n";
-		system("digits1.exe"); system("digits1_rac.exe");
-		system("fc digits1.out digits1_rac.out");
-	}
+// Tên chương trình
+const string NAME = "digits1";
+// Số test kiểm tra
+const int NTEST = 100;
+
+mt19937_64 rd(chrono::steady_clock::now().time_since_epoch().count());
+#define rand rd
+
+// Viết lại hàm random để sử dụng cho thuận tiện.
+// Hàm random này sinh ngẫu nhiên số trong phạm vi long long
+// Số sinh ra nằm trong [L;R].
+long long Rand(long long L, long long R) {
+    // assert(L <= R);
+    return L + rd() % (R - L + 1);
+}
+
+int main()
+{
+    srand(time(NULL));
+    for (int iTest = 1; iTest <= NTEST; iTest++)
+    {
+        // Code sinh test 
+        ofstream inp((NAME + ".inp").c_str());
+        inp<<Rand(1,1000000);
+        inp.close();
+
+        // Nếu dùng Linux thì "./" + Tên chương trình
+        system((NAME + ".exe").c_str());
+        system((NAME + "_rac.exe").c_str());
+
+        // Nếu dùng linux thì thay fc bằng diff
+        if (system(("fc " + NAME + ".out " + NAME + "_rac.out").c_str()) != 0)
+        {
+            cout << "Test " << iTest << ": WRONG!\n";
+            return 0;
+        }
+        cout << "Test " << iTest << ": CORRECT!\n";
+    }
+    return 0;
 }
