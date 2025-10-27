@@ -2,6 +2,7 @@
 #include <stdio.h>
 #define ll long long 
 const ll maxP=450;
+const ll modN=1000000007;
 char pr[455];
 char l[50],r[50];
 ll k,ds[55],dz=0,dp[55][2][455][455]; // dp[pos][sml][sum][rem]
@@ -10,7 +11,7 @@ ll sol(ll pos,ll sml,ll sum,ll rem){
 	if(dp[pos][sml][sum][rem]!=-1){return dp[pos][sml][sum][rem];}
 	ll lim=sml?ds[pos]:9,res=0;
 	for(ll d=0;d<=lim;d++){
-		res+=sol(pos+1,sml&&d==lim,sum+d,(rem*10+d)%k);
+		res+=sol(pos+1,sml&&d==lim,sum+d,(rem*10+d)%k)%modN;
 	}
 	return dp[pos][sml][sum][rem]=res;
 }
@@ -23,10 +24,16 @@ ll f(char x[]){
 
 void dec(char *x) {
     ll n=strlen(x);
-    for(int i=n-1;i>=0;i--){if(x[i]>'0'){x[i]--;break;}else{x[i]='9';}}
+	if(n==1&&x[0]=='0'){return;}
+    for(int i=n-1;i>=0;i--){
+		if(x[i]>'0'){x[i]--;break;}else{x[i]='9';}
+	}
     if(x[0]=='0'&&n>1){memmove(x,x+1,n);}
 }
 int main(){
+	if(fopen("divprime.inp","r")){
+		// freopen("divprime.inp","r",stdin);
+	}
 	pr[0]=pr[1]=1;
 	for(ll i=2;i*i<=maxP;i++){
 		if(!pr[i]){
@@ -34,6 +41,8 @@ int main(){
 		}
 	}
 	scanf("%s %s %lld",l,r,&k);
+	// scanf("%s",l);
 	dec(l);
+	// printf("%s",l);
 	printf("%lld",f(r)-f(l));
 }
