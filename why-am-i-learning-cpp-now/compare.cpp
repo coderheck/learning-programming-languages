@@ -17,7 +17,7 @@ mt19937_64 rd(chrono::steady_clock::now().time_since_epoch().count());
 // Hàm random này sinh ngẫu nhiên số trong phạm vi long long
 // Số sinh ra nằm trong [L;R].
 long long Rand(long long L, long long R) {
-    // assert(L <= R);
+    assert(L <= R);
     return L + rd() % (R - L + 1);
 }
 
@@ -26,18 +26,19 @@ int main()
     srand(time(NULL));
     for (int iTest = 1; iTest <= NTEST; iTest++)
     {
-        // Code sinh test 
+        // ---=== bắt đầu code sinh test ===---
         ofstream inp((NAME + ".inp").c_str());
         long long n=Rand(1,1000);
         inp<<n<<"\n";
         for(long long i=1;i<=n;i++){inp<<Rand(-10000,10000);}
         inp.close();
+		// ---=== kết thúc code sinh test ===---
 
-        // Nếu dùng Linux thì "./" + Tên chương trình
+        // nếu dùng Linux thì "./" + tên chương trình
         system((NAME + ".exe").c_str());
         system((NAME + "_rac.exe").c_str());
 
-        // Nếu dùng linux thì thay fc bằng diff
+        // nếu dùng linux thì thay fc bằng diff
         if (system(("fc " + NAME + ".out " + NAME + "_rac.out").c_str()) != 0)
         {
             cout << "Test " << iTest << ": WRONG!\n";

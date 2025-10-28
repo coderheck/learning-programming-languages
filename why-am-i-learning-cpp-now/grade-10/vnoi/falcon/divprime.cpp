@@ -19,16 +19,21 @@ ll f(char x[]){
 	dz=strlen(x);
 	for(ll i=0;i<dz;i++){ds[i]=x[i]-'0';}
 	memset(dp,-1,sizeof dp);
-	return sol(0,1,0,0);
+	return sol(0,1,0,0)%modN;
 }
 
-void dec(char *x) {
+void dec(char* x){
+	if(strcmp(x,"0")==0){return;}
     ll n=strlen(x);
-	if(n==1&&x[0]=='0'){return;}
     for(int i=n-1;i>=0;i--){
 		if(x[i]>'0'){x[i]--;break;}else{x[i]='9';}
 	}
     if(x[0]=='0'&&n>1){memmove(x,x+1,n);}
+}
+void clean(char* x){
+	ll i=0,n=strlen(x);
+	while(x[i]=='0'&&x[i+1]!='\0'){i++;}
+	if(i>0){memmove(x,x+i,n-i+1);}
 }
 int main(){
 	if(fopen("divprime.inp","r")){
@@ -42,7 +47,8 @@ int main(){
 	}
 	scanf("%s %s %lld",l,r,&k);
 	// scanf("%s",l);
+	clean(l);
 	dec(l);
 	// printf("%s",l);
-	printf("%lld",f(r)-f(l));
+	printf("%lld",(f(r)-f(l)+modN)%modN);
 }
