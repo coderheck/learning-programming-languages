@@ -15,10 +15,10 @@ ll cook(const ll& n){
 }
 int main(){
 	cin.tie(0)->sync_with_stdio(0);
+	// ----==== sub 1 ====----
 	// for(ll i=1;i<=maxN;i++){
 	// 	for(ll j=i;j<=maxN;j+=i){divs[j]++;}
 	// }
-	cin>>l>>r;
 	// for(ll i=l;i<=r;i++){
 	// 	s+=divs[i];
 	// }
@@ -26,7 +26,8 @@ int main(){
 	// 	for(ll j=((l+i-1)/l)*l;j<=r;j+=i){s+=();}
 	// }
 	// cout<<s;
+	// ----==== sub 1 ====----
+	cin>>l>>r;
 	cout<<cook(r)-cook(l-1);
 }
-
 
