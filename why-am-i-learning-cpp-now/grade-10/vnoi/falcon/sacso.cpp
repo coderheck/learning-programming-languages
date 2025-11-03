@@ -1,115 +1,88 @@
 #include <iostream>
-#include <string>
+#include <vector>
 using namespace std;
+#define ll long long
+struct sub {char d, c; ll ss, lazy;};
+class segment
+{
+private:
+    ll n;
+    vector<sub> tree;
+    string s;
+    sub mergeNode(sub& sub1, sub& sub2)
+    {
+        if (!sub1.ss) {return sub2;}
+        if (!sub2.ss) {return sub1;}
+        sub doss;
+        if (sub1.c != sub2.d) {
+            doss.ss = sub1.ss + sub2.ss;
+		} else {
+            doss.ss = sub1.ss + sub2.ss - 1;
+		}
+        doss.c = sub2.c, doss.d = sub1.d, doss.lazy = 0;
+        return doss;
+    }
 
-struct node {
-    char lch,rch,laz; // laz = 0 => không cần update
-    int dif,len;
+public:
+    segment(ll& _n, string& x) : n(_n), tree(4 * n + 5, {'0', '0', 0, 0}) {s = x; build(1, 1, n);};
+    void build(ll node, ll l, ll r)
+    {
+        if (l == r) {tree[node] = {s[l], s[r], 1}; return;}
+        ll m = l + r >> 1;
+        build(node << 1, l, m);
+        build(node << 1 | 1, m + 1, r);
+        tree[node] = mergeNode(tree[node << 1], tree[node << 1 | 1]);
+    }
+    void add(ll node, char x)
+    {
+        tree[node].c = tree[node].d = x;
+        tree[node].ss = 1;
+        tree[node].lazy = x;
+    }
+    void down(ll node)
+    {
+        if (!tree[node].lazy) {return;}
+        add(node << 1, tree[node].lazy);
+        add(node << 1 | 1, tree[node].lazy);
+        tree[node].lazy = 0;
+    }
+    void update(ll node, ll l, ll r, ll u, ll v, char c)
+    {
+        if (l > v or r < u) {return;}
+        if (l >= u and r <= v) {add(node, c); return;}
+        down(node);
+        ll m = l + r >> 1;
+        update(node << 1, l, m, u, v, c);
+        update(node << 1 | 1, m + 1, r, u, v, c);
+        tree[node] = mergeNode(tree[node << 1], tree[node << 1 | 1]);
+    }
+    sub query(ll node, ll l, ll r, ll u, ll v)
+    {
+        if (l > v or r < u) {return {'0', '0', 0, 0};}
+        if (l >= u and r <= v) {return tree[node];}
+        down(node);
+        ll m = l + r >> 1;
+        sub lc = query(node << 1, l, m, u, v), 
+		    rc = query(node << 1 | 1, m + 1, r, u, v);
+        return mergeNode(lc, rc);
+    }
 };
-
-const int MAXN = 100005;
-node st[4 * MAXN];
-string s;
-
-void build(int idx, int l, int r) {
-    if (l == r) {
-        st[idx].lch = st[idx].rch = s[l];
-        st[idx].dif = 0;
-        st[idx].len = 1;
-        st[idx].laz = 0;
-        return;
-    }
-    int mid = (l + r) >> 1;
-    build(idx << 1, l, mid);
-    build(idx << 1 | 1, mid + 1, r);
-    
-    st[idx].lch = st[idx << 1].lch;
-    st[idx].rch = st[idx << 1 | 1].rch;
-    st[idx].len = st[idx << 1].len + st[idx << 1 | 1].len;
-    st[idx].dif = st[idx << 1].dif + st[idx << 1 | 1].dif;
-    st[idx].dif += (st[idx << 1].rch != st[idx << 1 | 1].lch);
-    st[idx].laz = 0;
-}
-
-void apply_laz(int idx, char val) {
-    st[idx].lch = st[idx].rch = val;
-    st[idx].dif = 0;
-    st[idx].laz = val;
-}
-
-void push(int idx) {
-    if (st[idx].laz) {
-        apply_laz(idx << 1, st[idx].laz);
-        apply_laz(idx << 1 | 1, st[idx].laz);
-        st[idx].laz = 0;
-    }
-}
-
-void update(int idx, int l, int r, int L, int R, char x) {
-    if (L <= l && r <= R) {
-        apply_laz(idx, x);
-        return;
-    }
-    push(idx);
-    int mid = (l + r) >> 1;
-    if (L <= mid) update(idx << 1, l, mid, L, R, x);
-    if (R > mid) update(idx << 1 | 1, mid + 1, r, L, R, x);
-    
-    st[idx].lch = st[idx << 1].lch;
-    st[idx].rch = st[idx << 1 | 1].rch;
-    st[idx].dif = st[idx << 1].dif + st[idx << 1 | 1].dif;
-    st[idx].dif += (st[idx << 1].rch != st[idx << 1 | 1].lch);
-}
-
-node query(int idx, int l, int r, int L, int R) {
-    if (L <= l && r <= R) {
-        return st[idx];
-    }
-    push(idx);
-    int mid = (l + r) >> 1;
-    if (R <= mid) return query(idx << 1, l, mid, L, R);
-    if (L > mid) return query(idx << 1 | 1, mid + 1, r, L, R);
-    
-    node left_node = query(idx << 1, l, mid, L, R);
-    node right_node = query(idx << 1 | 1, mid + 1, r, L, R);
-    
-    node res;
-    res.lch = left_node.lch;
-    res.rch = right_node.rch;
-    res.len = left_node.len + right_node.len;
-    res.dif = left_node.dif + right_node.dif;
-    res.dif += (left_node.rch != right_node.lch);
-    return res;
-}
-
+ll n, q, l, r;
+string s, type;
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    
-    int N, Q;
-    cin >> N >> Q >> s;
-    s = " " + s; 
-    
-    build(1, 1, N);
-    
-    while (Q--) {
-        string op; int L, R;
-        cin >> op >> L >> R;
-        if (op[0] == 'g') {
-            if (L == R) {
-                cout << 0 << "\n";
-            } else {
-                node res = query(1, 1, N, L, R);
-                cout << res.dif + 1 << "\n";
-            }
+	cin.tie(0)->sync_with_stdio(0);
+    cin >> n >> q >> s;
+    s = '0' + s;
+    segment seg(n, s);
+    while (q--) {
+        cin >> type >> l >> r;
+        if (type[0] == 'g') {
+            sub res = seg.query(1, 1, n, l, r);
+            cout << res.ss << '\n';
         } else {
             char x;
             cin >> x;
-            update(1, 1, N, L, R, x);
+            seg.update(1, 1, n, l, r, x);
         }
     }
-    
-    return 0;
 }
-
-
