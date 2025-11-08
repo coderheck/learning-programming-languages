@@ -14,6 +14,10 @@ ll dfs(ll u){
 	ll ans=1;
 	for(ll v:adj[u]){ans+=dfs(v);} // tính số đỉnh liên thông với v
 	return ans;
+	// vis[u]=true;
+	// for(ll v:adj[u]){
+	// 	res++;dfs(v);
+	// }
 }
 int main(){
 	cin.tie(0)->sync_with_stdio(0);

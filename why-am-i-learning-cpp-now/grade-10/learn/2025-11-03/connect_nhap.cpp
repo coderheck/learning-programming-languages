@@ -1,53 +1,37 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
-
-const int maxN = 10005;
-int n, m, u, v;
+#define ll long long 
+#define max(a,b) ((a)>(b)?(a):(b))
+const ll maxN=10005;
+ll n,m,u,v,res=0;
 bool vis[maxN];
-vector<vector<int>> adj(maxN);
-
-int dfs(int u) {
-    if (vis[u]) return 0;
-    vis[u] = true;
-    int count = 1; // Đếm chính đỉnh u
-    for (int v : adj[u]) {
-        count += dfs(v);
-    }
-    return count;
+vector<vector<ll>>adj(maxN);
+ll dfs(ll u){
+	if(vis[u]){return 0;} // đã đi qua -> không tính nữa
+	vis[u]=true;
+	ll ans=1;
+	for(ll v:adj[u]){ans+=dfs(v);} // tính số đỉnh liên thông với v
+	return ans;
+	vis[u]=true;
+	for(ll v:adj[u]){
+		res++;dfs(v);
+	}
 }
-
-int main() {
-    cin.tie(0)->sync_with_stdio(0);
-    cin >> n >> m;
-    
-    for (int i = 1; i <= m; i++) {
-        cin >> u >> v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    
-    vector<int> components;
-    
-    // Tìm tất cả các thành phần liên thông
-    for (int i = 1; i <= n; i++) {
-        if (!vis[i]) {
-            int comp_size = dfs(i);
-            components.push_back(comp_size);
-        }
-    }
-    
-    // Sắp xếp các thành phần giảm dần
-    sort(components.rbegin(), components.rend());
-    
-    int res = components[0]; // Thành phần lớn nhất
-    
-    // Nếu có ít nhất 2 thành phần, có thể kết nối thành phần lớn nhất với thành phần lớn thứ hai
-    if (components.size() > 1) {
-        res += components[1];
-    }
-    
-    cout << res;
-    return 0;
+int main(){
+	cin.tie(0)->sync_with_stdio(0);
+	cin>>n>>m;
+	for(ll i=1;i<=m;i++){
+		cin>>u>>v;
+		adj[u].push_back(v);
+		adj[v].push_back(u);
+	}
+	vector<ll>connected;
+	for(ll i=1;i<=n;i++){ // duyệt từng thành phố 
+		if(!vis[i]){connected.push_back(dfs(i));}
+	}
+	sort(connected.rbegin(),connected.rend());
+	res=connected[0]+(connected.size()>1?connected[1]:0);
+	cout<<res;
 }
