@@ -1,65 +1,83 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+#include <fstream>
 
-#define ll long long
+using namespace std;
 
-const ll INF = 1e18;
-const ll maxn = 1e5;
-
-ll n;
-ll a[maxn + 2];
-ll sum[maxn + 2];
-ll cnt = 0;
-ll res = 0;
-ll max1;
-
-void INP()
-{
-    std::cin>>n;
-    for(ll i=1; i<=n; i++)
-    {
-        std::cin>>a[i];
+int main() {
+    ifstream fin("ATRISET.inp");
+    ofstream fout("ATRISET.out");
+    
+    int n;
+    fin >> n;
+    
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        fin >> a[i];
     }
-}
-void OUT()
-{
-    std::cout<<cnt<<"\n"<<res;
-}
-void sub12()
-{
-    std::sort(a+1,a+1+n);
-
-
-    for(ll i=1; i<=n; i++)
-    {
-        max1 = -INF;
-        for(ll j=i+1; j<=n; j++)
-        {
-            ll tb = (a[i] + a[j])/2;
-            if((a[i] + a[j])%2==0)
-            {
-                ll d = (a[i] + a[j])/ 2;
-                ll k = std::lower_bound(a+1,a+1+n,d) - a;
-                if(tb == a[k])
-                {
-                    cnt++;
-                    ll triangle = a[i] + a[j] + a[k];
-                    max1 = std::max(max1,triangle);
+    
+    // Sắp xếp mảng
+    sort(a.begin(), a.end());
+    
+    int count = 0;
+    int max_sum = -3000000; // Khởi tạo giá trị nhỏ nhất có thể
+    
+    // Duyệt qua tất cả các cặp (i, j)
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            // Kiểm tra 3 trường hợp
+            
+            // Trường hợp 1: a_k = 2*a_i - a_j
+            int target1 = 2 * a[i] - a[j];
+            if (binary_search(a.begin(), a.end(), target1)) {
+                // Tìm vị trí của target1, đảm bảo khác i và j
+                auto it = lower_bound(a.begin(), a.end(), target1);
+                int pos = it - a.begin();
+                if (pos != i && pos != j) {
+                    count++;
+                    max_sum = max(max_sum, a[i] + a[j] + target1);
+                }
+            }
+            
+            // Trường hợp 2: a_k = 2*a_j - a_i
+            int target2 = 2 * a[j] - a[i];
+            if (binary_search(a.begin(), a.end(), target2)) {
+                auto it = lower_bound(a.begin(), a.end(), target2);
+                int pos = it - a.begin();
+                if (pos != i && pos != j) {
+                    count++;
+                    max_sum = max(max_sum, a[i] + a[j] + target2);
+                }
+            }
+            
+            // Trường hợp 3: a_k = (a_i + a_j) / 2
+            // Chỉ xét nếu tổng chẵn
+            if ((a[i] + a[j]) % 2 == 0) {
+                int target3 = (a[i] + a[j]) / 2;
+                if (binary_search(a.begin(), a.end(), target3)) {
+                    auto it = lower_bound(a.begin(), a.end(), target3);
+                    int pos = it - a.begin();
+                    if (pos != i && pos != j) {
+                        count++;
+                        max_sum = max(max_sum, a[i] + a[j] + target3);
+                    }
                 }
             }
         }
-        res =std::max(res,max1);
     }
-}
-int main()
-{
-    if(fopen("ATRISET.INP","r"))
-    {
-        freopen("ATRISET.INP","r",stdin);
-        freopen("ATRISET.OUT","r",stdout);
-    }
-
-    INP();
-    sub12();
-    OUT();
-
+    
+    // Vì mỗi bộ được đếm nhiều lần, chia cho số lần trùng
+    // Mỗi bộ 3 phần tử có 3 cặp, mỗi cặp tạo ra 2 trường hợp trùng
+    // Thực tế mỗi bộ được đếm 3 lần
+    count = count / 3;
+    
+    fout << count << endl;
+    fout << max_sum << endl;
+    
+    fin.close();
+    fout.close();
+    
+    return 0;
 }
