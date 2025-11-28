@@ -10,10 +10,9 @@ using namespace std;
 #define taskname "cuuhoa"
 const ll maxN=1005;
 const ll inff=100000000000007;
-vector<vector<pll>>gr(maxN); // v, w
-bool cmp(const pll& a,const pll& b){}
+vector<vector<pll>>gr(maxN); // v, w 
 void dijkstra(const ll& st,const ll& nd){
-	priority_queue<pll,vector<pll>,cmp>pq; // pq: (weight, vertex)
+	priority_queue<pll,vector<pll>,greater<pll>>pq; // pq: (weight, vertex)
 	vector<ll>d(maxN,inff),cnt(maxN,0);
 	pq.push({0,st}),d[st]=0,cnt[st]=1;
 	while(pq.size()){
@@ -36,7 +35,7 @@ ll n,m,s,t,u,v,w;
 int main(){
 	if(fopen(taskname".inp","r")){
 		freopen(taskname".inp","r",stdin);
-		freopen(taskname".out","w",stdout);
+		// freopen(taskname".out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n>>m>>s>>t;
