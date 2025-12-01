@@ -19,14 +19,14 @@ int main(){
 	for(ll i=1;i<=n;i++){cin>>a[i];b[i]=a[i];}
 	sort(b+1,b+n+1);
 	for(ll i=1;i<=n;i++){if(a[i]!=b[i]){ss=false;break;}}
-	if(ss){ // thoát sớm: đã sort
-		mywife();
-		return 0;
-	}
 	if(n<=1000&&k==1){ // sub 1: gặp số a[i] > a[i+1] đầu tiên thì swap
 		for(ll i=1;i+1<=n;i++){
 			if(a[i]>a[i+1]){swap(a[i],a[i+1]);break;}
 		}
+		mywife();
+		return 0;
+	}
+	if(ss){ // thoát sớm: đã sort
 		mywife();
 		return 0;
 	}
