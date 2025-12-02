@@ -1,20 +1,15 @@
-/// dm tarjan
-
 #include <iostream> 
-#include <stack>
 #include <vector>
 using namespace std;
 #define ll long long 
-#define tname "graph_"
+#define tname "graph"
 #define max(a,b) ((a)>(b)?(a):(b))
 #define min(a,b) ((a)<(b)?(a):(b))
-const ll maxn=100005;
+const ll maxn=100005,modn=1000000007;
 vector<vector<ll>>graph(maxn);
-ll n,m,cnt=0,edge=0,vertex=0,num[maxn],low[maxn];
-bool node[maxn];
-stack<ll>st;
+ll n,m,cnt=0,cc=0,num[maxn],low[maxn],cut[maxn];
+bool root[maxn];
 void dfs(const ll& u,const ll& prev){
-	ll child=0;
 	num[u]=low[u]=++cnt;
 	for(const ll& v:graph[u]){
 		if(v!=prev){
@@ -22,14 +17,8 @@ void dfs(const ll& u,const ll& prev){
 				low[u]=min(low[u],num[v]);
 			}else{
 				dfs(v,u);
-				child++;
 				low[u]=min(low[u],low[v]);
-				if(low[v]>=num[v]){edge++;}
-				if(u==prev){
-					if(child>=2){node[u]=true;}
-				}else if(low[v]>=num[u]){
-					node[u]=true;
-				}
+				cut[u]+=(low[v]>=num[u]);
 			}
 		}
 	}
@@ -41,13 +30,17 @@ int main(){
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n>>m;
-	for(ll i=1;i<=m;i++){
+	while(m--){
 		ll u,v;cin>>u>>v;
 		graph[u].push_back(v);
 		graph[v].push_back(u);
 	}
-	for(ll i=1;i<=n;i++){if(!num[i]){dfs(i,i);}}
-	for(ll i=1;i<=n;i++){vertex+=node[i];}
-	cout<<vertex<<" "<<edge;
+	for(ll i=1;i<=n;i++){
+		if(!num[i]){dfs(i,0);cc++,root[i]=true;}
+	}
+	for(ll u=1;u<=n;u++){
+		cout<<cc+cut[u]-root[u]<<"\n";
+	}
 }
+
 
