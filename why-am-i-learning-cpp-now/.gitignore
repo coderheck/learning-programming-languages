@@ -11,3 +11,5 @@ LeHoangLong*
 *.bin
 .cph
 ClientSettings
+.zed
+.vscode
