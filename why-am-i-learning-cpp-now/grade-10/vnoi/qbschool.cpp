@@ -4,7 +4,7 @@
 #include <functional>
 #include <queue>
 using namespace std;
-#define ll long long 
+#define ll long long
 #define pll pair<ll,ll>
 #define taskname "qbschool"
 const ll maxN=5005,inff=1000000000007;

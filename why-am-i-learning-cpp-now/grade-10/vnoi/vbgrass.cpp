@@ -2,7 +2,7 @@
 #include <queue>
 #include <utility>
 using namespace std;
-#define ll long long 
+#define ll long long
 #define tname "vbgrass"
 #define pll pair<ll,ll>
 const ll maxN=105;

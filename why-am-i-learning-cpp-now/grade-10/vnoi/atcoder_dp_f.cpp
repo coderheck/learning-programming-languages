@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 using namespace std;
-#define ll long long 
+#define ll long long
 #define max(a,b) ((a)>(b)?(a):(b))
 #define min(a,b) ((a)<(b)?(a):(b))
 const ll maxN=105;
@@ -33,4 +33,3 @@ int main(){
 	}
 	for(ll i=lcs.size()-1;i>=0;i--){cout<<lcs[i];}
 }
-
