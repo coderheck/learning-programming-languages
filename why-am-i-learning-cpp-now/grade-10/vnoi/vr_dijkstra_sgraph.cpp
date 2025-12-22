@@ -3,7 +3,7 @@
 #include<vector>
 #include<queue>
 using namespace std;
-#define ll long long 
+#define ll long long
 #define tname "vr_dijkstra_sgraph"
 const ll maxN=200005;
 ll n,m;
@@ -12,14 +12,21 @@ struct edge{
     bool operator<(const edge &rhs)const{return w>rhs.w;}
 };
 vector<vector<edge>>g(maxN);
-ll ijk(const ll &st,const ll &nd){
+vector<ll>d1(n+5,LLONG_MAX); // distForward (từ 1 -> i)
+vector<ll>dn(n+5,LLONG_MAX); // distBackward (từ i -> 1)
+void ijk(const ll &st,vector<ll>&d){
     priority_queue<edge>pq;
-    vector<ll>d(n+5,LLONG_MAX);
     pq.push({st,0}),d[st]=0;
     while(pq.size()){
         ll u=pq.top().v,du=pq.top().w;pq.pop();
         if(d[u]!=du){continue;}
-        if(u==nd){return d[u];}
+        for(const edge &nx:g[u]){
+            ll v=nx.v,dv=nx.w;
+            if(d[v]>du+dv){
+                d[v]=du+dv;
+                pq.push({v,d[v]});
+            }
+        }
     }
 }
 int main(){
@@ -33,5 +40,8 @@ int main(){
         ll u,v,w;cin>>u>>v>>w;
         g[u].push_back({v,w});
     }
-
+    ijk(1,d1);ijk(n,dn);
+    for(ll i=2;i<=n;i++){
+        if(d1[i]+dn[i]==)
+    }
 }

@@ -1,18 +1,24 @@
-#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <utility>
+using namespace std;
 #define ll long long
 #define tname "dsu_c"
-const ll maxN=100005;
-ll n,k,par[maxN],sz[maxN],cc[maxN],laz[maxN];
-char type[4];
-void make(const ll& u){par[u]=u,sz[u]=1,cc[u]=laz[u]=0;}
-ll ffind(const ll &u){
-    return u==par[u]?u:par[u]=ffind(par[u]),cc[u]=laz[par[u]];
+const ll maxN=100005,maxQ=500005;
+ll n,k,par[maxN],sz[maxN],cc[maxN];
+struct qq{ll t,x,y;}quer[maxQ];
+string t;
+void make(const ll &u){
+    par[u]=u,sz[u]=1,cc[u]=0;
 }
-void join(const ll& u,const ll &v){
-    ll x=ffind(u),y=ffind(v);
-    if(x!=y){
-        if(sz[x]<sz[y]){ll z=x;x=y,y=z;}
-        par[y]=x,sz[x]+=sz[y],cc[x]+=cc[y];
+ll ffind(const ll &u){
+    return u==par[u]?u:ffind(par[u]);
+}
+ll uuni(ll a,ll b){
+    a=ffind(a),b=ffind(b);
+    if(a!=b){
+        if(sz[a]<sz[b]){swap(a,b);}
+        par[b]=a,sz[a]+=sz[b];
     }
 }
 int main(){
@@ -20,20 +26,13 @@ int main(){
         freopen(tname".inp","r",stdin);
         // freopen(tname".out","w",stdout);
     }
-    scanf("%lld%lld",&n,&k);
+    cin>>n>>k;
     for(ll i=1;i<=n;i++){make(i);}
-    while(k--){
-        scanf("%s",&type[0]);
-        if(type[0]=='g'){
-            ll u;scanf("%lld",&u);
-            printf("%lld\n",cc[ffind(u)]);
-        }else{
-            ll u,v;scanf("%lld%lld",&u,&v);
-            if(type[0]=='j'){
-                join(u,v);
-            }else{
-                cc[ffind(u)]+=v;
-            }
+    for(ll i=1;i<=k;i++){
+        cin>>t;
+        if(t[0]=='g'){
+
         }
     }
+
 }
