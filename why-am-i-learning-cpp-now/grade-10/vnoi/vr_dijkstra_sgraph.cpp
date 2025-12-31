@@ -11,10 +11,7 @@ struct edge{
     ll v,w;
     bool operator<(const edge &rhs)const{return w>rhs.w;}
 };
-vector<vector<edge>>g(maxN);
-vector<ll>d1(n+5,LLONG_MAX); // distForward (từ 1 -> i)
-vector<ll>dn(n+5,LLONG_MAX); // distBackward (từ i -> 1)
-void ijk(const ll &st,vector<ll>&d){
+void ijk(const ll &st,vector<ll>&d,const vector<vector<edge>> &g){
     priority_queue<edge>pq;
     pq.push({st,0}),d[st]=0;
     while(pq.size()){
@@ -29,19 +26,23 @@ void ijk(const ll &st,vector<ll>&d){
         }
     }
 }
+vector<vector<edge>>gg(maxN),gr(maxN);
 int main(){
     if(fopen(tname".inp","r")){
         freopen(tname".inp","r",stdin);
-        freopen(tname".out","w",stdout);
+        // freopen(tname".out","w",stdout);
     }
     cin.tie(0)->sync_with_stdio(0);
     cin>>n>>m;
     for(ll i=1;i<=m;i++){
         ll u,v,w;cin>>u>>v>>w;
-        g[u].push_back({v,w});
+        gg[u].push_back({v,w});
+        gr[v].push_back({u,w});
     }
-    ijk(1,d1);ijk(n,dn);
+	vector<ll>d1(n+5,LLONG_MAX); // distForward (từ 1 -> i)
+	vector<ll>dr(n+5,LLONG_MAX); // distBackward (từ i -> 1)
+    ijk(1,d1,gg);ijk(1,dr,gr);
     for(ll i=2;i<=n;i++){
-        if(d1[i]+dn[i]==)
+        cout<<(d1[i]!=LLONG_MAX&&dr[i]!=LLONG_MAX?d1[i]+dr[i]:-1)<<"\n";
     }
 }
