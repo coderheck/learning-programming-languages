@@ -28,8 +28,8 @@ int main(){
         for(ll j=1;j<=m;j++){ // (i,j) góc trên bên trái
             for(ll u=i;u<=n;u++){
                 for(ll v=j;v<=m;v++){ // (u,v) góc dưới bên phải
-                    if(zz[u][v]-zz[u-i][v]-zz[u][v-j]+zz[u-i][v-j]<=x && (u-i+1)*(v-j+1)<=s){
-                        res=max(res,sum[u][v]-sum[u-i][v]-sum[u][v-i]+sum[u-i][v-j]);
+                    if(zz[u][v]-zz[i-1][v]-zz[u][j-1]+zz[i-1][j-1]<=x && (u-i+1)*(v-j+1)<=s){
+                        res=max(res,sum[u][v]-sum[i-1][v]-sum[u][j-1]+sum[i-1][j-1]);
                     }
                 }
             }
