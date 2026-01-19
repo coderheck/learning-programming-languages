@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 using namespace std;
-#define ll long long 
+#define ll long long
 #define tname "rmq"
 #define min(a,b) ((a)<(b)?(a):(b))
 #define txp(x) (1<<(x)) // lấy 2^x
@@ -15,7 +15,7 @@ struct sptable{
 	// dp[k][i] = min của đoạn bắt đầu từ u và có độ dài 2^k
 	void init(){
 		// bài toán cơ sở: đoạn từ i với độ dài 2^0 = 1 => chính a[i]
-		for(ll i=1;i<=n;i++){dp[0][i]=a[i];} 
+		for(ll i=1;i<=n;i++){dp[0][i]=a[i];}
 		// các đoạn có độ dài 2^e (e là exponent)
 		for(ll e=1;e<=log2(n);e++){
 			// các đoạn bắt đầu từ i
@@ -27,7 +27,7 @@ struct sptable{
 			}
 		}
 	}
-	// min của đoạn [l; l + 2^k - 1] và [r - 2^k + 1; r] 
+	// min của đoạn [l; l + 2^k - 1] và [r - 2^k + 1; r]
 	ll quer(const ll &l,const ll &r){
 		ll k=log2(r-l+1); // 2^k <= (r-l+1) < 2^(k+1)
 		return min(dp[k][l],dp[k][r-txp(k)+1]);
