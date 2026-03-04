@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unordered_map>
-#include <vector>
 using namespace std;
 #define tname "gcd78"
 #define ll long long
@@ -11,9 +10,8 @@ using namespace std;
 #define getbit(x,k) ((x)>>(k))&1
 const ll maxN=1000005;
 ll gcd(const ll &a,const ll &b){return(!b)?a:gcd(b,a%b);}
-ll n,aa;
+ll n,a[maxN];
 umap<ll,ll>cnt,cntdiv;
-vector<ll>a;
 int main(){
     if(fopen(tname".inp","r")){
         freopen(tname".inp","r",stdin);
@@ -21,7 +19,7 @@ int main(){
     }
     cin.tie(0)->sync_with_stdio(0);
     cin>>n;
-    for(ll i=1;i<=n;i++){cin>>aa;a.push_back(aa);cnt[a[i]]++;}
+    for(ll i=1;i<=n;i++){cin>>a[i];}
     if(n==2){ // sub 1 if else
         lout((gcd(a[1],a[2])>1?2:1));
         return 0;
@@ -44,11 +42,10 @@ int main(){
     }
     // sub 3
     ll res=0;
+    for(ll i=1;i<=n;i++){if(a[i]<=1e7){cnt[a[i]]++;}}
     for(ll i=2;i<maxN;i++){
         for(ll j=i;j<maxN;j+=i){cntdiv[i]+=cnt[j];}
     }
-    for(ll i=2;i<maxN;i++){
-        res=max(res,cntdiv[i]);
-    }
+    for(ll i=2;i<maxN;i++){res=max(res,cntdiv[i]);}
     lout(res);
 }
