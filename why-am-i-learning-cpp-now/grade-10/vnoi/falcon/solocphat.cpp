@@ -13,23 +13,23 @@ ll dp[20][2][2][2],ds[20],dz=0;
 ll sol(ll pos,bool smla,bool smlb,bool muon){
     if(pos==dz){return !muon;}
     if(dp[pos][smla][smlb][muon]!=-1){return dp[pos][smla][smlb][muon];}
-    int lim=smla?ds[pos]:9;ll res=0;
+    int lim=ds[pos];ll res=0;
     for(int a=0;a<=lim;a++){
-        if(a==6||a==8){continue;}
+        if((a!=6)&&(a!=8)){continue;}
         if(smla&&a>lim){break;}
         int na=smla&&(a==lim),b=lim-a-muon,nb=muon;
         if(b<0){b+=10,nb=1;}else{nb=0;}
-        if(b==6||b==8){continue;}
+        if((b!=6)&&(b!=8)){continue;}
         int nt=smlb&&(b==lim);
         res+=sol(pos+1,na,nt,nb);
     }
     return dp[pos][smla][smlb][muon]=res;
 }
-ll n,x;
+ll n;
 void f(){
     if(n<=0){lout("0");}
-    dz=0,x=n;
-    while(x){ds[dz++]=x%10;x/=10;}
+    dz=0;
+    while(n){ds[dz++]=n%10;n/=10;}
     rvArr(ds,dz);
     memset(dp,-1,sizeof(dp));
     lout(((n>>1)-sol(0,1,1,0)));
