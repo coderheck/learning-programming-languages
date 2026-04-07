@@ -31,8 +31,7 @@ int main(){
         cin>>a[i];
         if(sub1){sub1=sub1&&(a[i]<=10);}
         if(sublog){
-            float t=log2(a[i]);
-            sublog=sublog&&(ceil(t)==floor(t));
+            sublog&=((a[i]&(a[i]-1))==0);
         }
     }
     // sub 1: 2 vòng lặp for, tích max=10^18
@@ -53,8 +52,8 @@ int main(){
     // ll pp=3111696;
     // lout(cp(pp)<<" "<<log2(pp));
     if(sublog){
-        lout("sublog");
-        for(ll i=1;i<=n;i++){a[i]=a[i-1]+log2(a[i]);}
+        // lout("sublog");
+        for(ll i=1;i<=n;i++){a[i]=a[i-1]+(ll)log2(a[i]);}
         for(ll q=1,l,r;q<=Q;q++){
             cin>>l>>r;
             lout(((a[r]-a[l-1])&1?"NO":"YES"));
@@ -72,7 +71,7 @@ int main(){
             ll mm=a[j];
             while(!(mm&1)){cnt[2]++,mm>>=1;}
             for(ll p=3;p*p<=mm;p+=2){
-                while(mm%p==0){cnt[p]++,mm>>=p;}
+                while(mm%p==0){cnt[p]++,mm/=p;}
             }
             if(mm>1){cnt[mm]++;}
         }
