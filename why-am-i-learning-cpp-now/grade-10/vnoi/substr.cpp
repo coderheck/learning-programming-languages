@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#define ll long long 
+#define ll long long
 const ll modN=1000000007;
 const ll maxN=1000005;
 ll maxsz=0,hsh1[maxN],h2=0,p[maxN];

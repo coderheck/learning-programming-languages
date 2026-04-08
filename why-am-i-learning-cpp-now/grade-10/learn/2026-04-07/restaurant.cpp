@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define tname "path"
+#define tname "restaurant"
 #define umap __gnu_pbds::gp_hash_table
 #define ll long long
 #define max(a,b) ((a)>(b)?(a):((a)==(b)?-inff:(b)))
@@ -20,11 +20,13 @@ int main(){
     }
     cin.tie(0)->sync_with_stdio(0);
     cin>>Q;
-    // thực chất các phép biến đổi trong đề bài là các bước của
-    // thuật toán tìm gcd của Euclid
-    // bài toán trở về xác định gcd của (u;v) và (x;y)
-    for(ll q=1,u,v,x,y;q<=Q;q++){
-        cin>>u>>v>>x>>y;
-        lout((gcd(u,v)==gcd(x,y)?"YES":"NO"));
+    // hình vuông lớn nhất có thể cắt được có chiều dài
+    // cạnh = gcd(h,w)
+    // số hình vuông cắt được = diện tích hình gốc/diện
+    // tích hình vuông lớn nhất
+    for(ll q=1,h,w,gc;q<=Q;q++){
+        cin>>h>>w;
+        gc=gcd(h,w);
+        lout((h*w)/(gc*gc));
     }
 }
