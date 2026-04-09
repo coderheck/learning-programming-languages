@@ -20,13 +20,14 @@ int main(){
     }
     cin.tie(0)->sync_with_stdio(0);
     cin>>Q;
-    // sau n lần tăng trưởng thì cây cao:
-    // h = -- 2n        (n lẻ)
-    //     |
-    //     -- 2n - 1    (n chẵn)
-    // chú ý trường hợp n = 0 tức cây không sinh trường => h = 1
-    for(ll q=1,n;q<=Q;q++){
+    // 2 vòng: h -> 2h -> 2h + 1
+    // cứ 2 vòng tạo thành 1 chu kỳ, gọi k = floor(n/2)
+    // tính h với vài k, ta nhận thấy h = 2^(k+1) - 1
+    // nếu n lẻ thì còn 1 lần sinh trưởng ở xuân nữa => nhân 2
+    for(ll q=1,n,k,h;q<=Q;q++){
         cin>>n;
-        lout((!n?1:(n<<1)-!(n&1)));
+        k=n>>1,h=(1LL<<(k+1))-1;
+        if(n&1){h<<=1;}
+        lout(h);
     }
 }

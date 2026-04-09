@@ -3,7 +3,8 @@ using namespace std;
 #define tname "lares"
 #define umap __gnu_pbds::gp_hash_table
 #define ll long long
-#define max(a,b) ((a)>(b)?(a):((a)==(b)?-inff:(b)))
+#define max(a,b) ((a)>(b)?(a):(b))
+#define min(a,b) ((a)<(b)?(a):(b))
 #define la(x) \
     cout<<x<<"\n"; \
     // cerr<<x<<"\n"
@@ -23,10 +24,10 @@ int main(){
     // - 2P <= m
     // - P <= n
     // - (m + n) - 3P >= k
-    ll l=1,r=n,p,res=1;
+    ll l=0,r=min(m>>1,n),p,res=0;
     while(l<=r){
         p=(l+r)>>1;
-        if(p*2<=m && p<=n && (m+n)-p*3){res=p,l=m+1;}else{r=m-1;}
+        if(p*2<=m && p<=n && (m+n)-p*3>=k){res=p,l=p+1;}else{r=p-1;}
     }
     la(res);
 }

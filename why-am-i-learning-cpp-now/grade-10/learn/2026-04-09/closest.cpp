@@ -31,14 +31,14 @@ int main(){
     cin.tie(0)->sync_with_stdio(0);
     cin>>Q;
     // tìm k sao cho k*x gần bằng a^b <=> k gần nhất với a^b/x
-    for(ll q=1,a,b,x,k,p;q<=Q;q++){
+    for(ll q=1,a,b,x,k,p,a1,a2;q<=Q;q++){
         cin>>a>>b>>x;
         if(b<0){lout(0);continue;}
-        p=fastpow(a,b),k=round(1.0*p/x);
-        if(abs(k*x-p)<=abs((k+1)*x-p)){
-            lout(k*x);
+        p=fastpow(a,b),k=p/x,a1=k*x,a2=(k+1)*x;
+        if(abs(a1-p)<=abs(a2-p)){
+            lout(a1);
         }else{
-            lout((k+1)*x);
+            lout(a2*x);
         }
     }
 }
