@@ -35,10 +35,6 @@ int main(){
         cin>>a>>b>>x;
         if(b<0){lout(0);continue;}
         p=fastpow(a,b),k=p/x,a1=k*x,a2=(k+1)*x;
-        if(abs(a1-p)<=abs(a2-p)){
-            lout(a1);
-        }else{
-            lout(a2*x);
-        }
+        lout((abs(a1-p)<=abs(a2-p?a1:a2)));
     }
 }
