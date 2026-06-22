@@ -1,3 +1,5 @@
+// source: https://stackoverflow.com/a/37109258
+
 #include <string>
 
 static const char* B64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
