@@ -14,7 +14,7 @@ using namespace std;
 #define oout(x) \
     cout<<x<<" ";\
 	cerr<<x<<" ";
-const ll maxN=1e18,inff=1LL<<62;
+// const ll maxN=1e18,inff=1LL<<62;
 const ll p[16]={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53};
 ll n,res=0,t;
 void backt(ll i,ll maxE,ll val,ll numdiv){
