@@ -1,8 +1,9 @@
 // #include <ext/pb_ds/assoc_container.hpp> // for policy hash table
 // #include <unordered_map>					// for normal umap
 #include <iostream>
+#include <iomanip>
 using namespace std;
-#define tname "e"
+#define tname "f"
 #define umap __gnu_pbds::gp_hash_table
 // #define umap unordered_map
 #define ll long long
@@ -14,17 +15,17 @@ using namespace std;
 #define oout(x) \
     cout<<x<<" ";\
 	cerr<<x<<" ";
-const ll maxN=200005,inff=1LL<<62;
-ll n,k,res=0,a[maxN];
-bool check(const ll &x){
-	ll p[maxN]={0};
-	for(ll i=1;i<=n;i++){p[i]=p[i-1]+(a[i]>=x?1:-1);}
-	ll minn=0;
-	for(ll r=k;r<=n;r++){
-		minn=min(minn,p[r-k]);
-		if(p[r]-minn>0){return true;}
+const ll maxN=100005,inff=1LL<<62;
+ll n,k,res=0;
+struct inp{ll s,d;}a[maxN];
+double calc(const double &t){
+	double maxx=-inff,minn=inff;
+	for(ll i=1;i<=n;i++){
+		double pos=a[i].s*t+a[i].d;
+		if(pos>maxx){maxx=pos;}
+		if(pos<minn){minn=pos;}
 	}
-	return false;
+	return maxx-minn;
 }
 int main(){
 	if(fopen(tname".inp","r")){
@@ -33,12 +34,11 @@ int main(){
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n>>k;
-	for(ll i=1;i<=n;i++){cin>>a[i];}
-	ll l=1,r=n,m;
-	while(l<=r){
-		m=(l+r)>>1;
-		if(check(m)){res=m;l=m+1;}else{r=m-1;}
+	for(ll i=1;i<=n;i++){cin>>a[i].s>>a[i].d;}
+	double l=0.0,r=k*1.0;
+	for(ll it=1;it<=100;it++){
+		double m1=l+(r-l)/3.0,m2=r-(r-l)/3.0;
+		if(calc(m1)<calc(m2)){r=m2;}else{l=m1;}
 	}
-	lout(res);
+	lout(fixed<<setprecision(6)<<calc(l));
 }
-
