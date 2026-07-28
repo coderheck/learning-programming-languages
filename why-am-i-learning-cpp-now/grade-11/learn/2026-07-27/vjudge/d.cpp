@@ -1,8 +1,9 @@
 // #include <ext/pb_ds/assoc_container.hpp> // for policy hash table
 // #include <unordered_map>					// for normal umap
 #include <iostream>
+#include <algorithm>
 using namespace std;
-#define tname "thhv25_dx10_10_a"
+#define tname "d"
 #define umap __gnu_pbds::gp_hash_table
 // #define umap unordered_map
 #define ll long long
@@ -14,34 +15,37 @@ using namespace std;
 #define oout(x) \
     cout<<x<<" ";\
 	cerr<<x<<" ";
-const ll maxN=1000005,maxP=1000000,inff=1LL<<62;
-ll rev(ll a){
-	if(a<10){return 0;}
+const ll maxN=1000005,inff=1LL<<62;
+ll n,m,res=0,a[maxN],sum[maxN];
+ll cntp(ll x){
 	ll r=0;
-	while(a){r=r*10+a%10;a/=10;}
+	for(ll i=1;i<=n;i++){
+		ll pos=lower_bound(a+1,a+n+1,x-a[i])-a;
+		r+=n-pos+1;
+	}
 	return r;
 }
-bool pr[maxN];
-ll T,a,b,cnt[maxN];
 int main(){
 	if(fopen(tname".inp","r")){
 		freopen(tname".inp","r",stdin);
 		freopen(tname".out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
-	pr[0]=pr[1]=true;
-	for(ll i=2;i*i<=maxP;i++){
-		if(!pr[i]){
-			for(ll j=i*i;j<=maxP;j+=i){pr[j]=true;}
-		}
+	cin>>n>>m;
+	for(ll i=1;i<=n;i++){cin>>a[i];}
+	sort(a+1,a+n+1);
+	for(ll i=1;i<=n;i++){sum[i]=sum[i-1]+a[i];}
+	ll l=2,r=200000,mid,tt=2;
+	while(l<=r){
+		mid=(l+r)>>1;
+		if(cntp(mid)>=m){tt=mid;l=mid+1;}else{r=mid-1;}
 	}
-	for(ll i=1,j;i<=maxP;i++){
-		j=rev(i);
-		cnt[i]=cnt[i-1]+(!pr[i] && !pr[j] && i!=j);
+	ll ch=0,sh=0;
+	for(ll i=1;i<=n;i++){
+		ll	pos=lower_bound(a+1,a+n+1,(tt+1)-a[i])-a,
+			cnt=n-pos+1;
+		ch+=cnt;
+		sh+=cnt*a[i]+(sum[n]-sum[pos-1]);
 	}
-	cin>>T;
-	while(T--){
-		cin>>a>>b;
-		lout(cnt[b]-cnt[a-1]);
-	}
+	lout(sh+(m-ch)*tt);
 }

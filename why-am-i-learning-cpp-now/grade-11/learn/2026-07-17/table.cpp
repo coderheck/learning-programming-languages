@@ -5,8 +5,8 @@ using namespace std;
 #define umap __gnu_pbds::gp_hash_table
 // #define umap unordered_map
 #define ll long long
-#define max_(a,b) ((a)>(b)?(a):(b))
-#define min_(a,b) ((a)<(b)?(a):(b))
+#define max(a,b) ((a)>(b)?(a):(b))
+#define min(a,b) ((a)<(b)?(a):(b))
 #define lout(x) \
     cout<<x<<"\n";\
     cerr<<x<<"\n"
