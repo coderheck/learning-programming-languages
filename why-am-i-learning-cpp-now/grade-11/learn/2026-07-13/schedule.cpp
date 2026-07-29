@@ -51,7 +51,7 @@ int main(){
 			for(ll i=0;i<n;i++){
 				if(i+1>a[p[i]]){good=false;break;}
 			}
-			if(good){res=min_(res,countinv(p));}
+			if(good){res=min(res,countinv(p));}
 		}while(next_permutation(p.begin(),p.end()));
 	}else{
 		// sub 2:
