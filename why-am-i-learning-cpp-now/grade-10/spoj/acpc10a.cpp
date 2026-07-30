@@ -3,11 +3,11 @@ using namespace std;
 #define ll long long 
 ll a,b,c;
 void parse(){
-  ll d=c-b,r=c/b;
+  ll d=c-b;
   if(d==b-a){
     cout<<"AP "<<c+d<<"\n";
-  }else if(r==b/a){
-    cout<<"GP "<<c*r<<"\n";
+  }else if(c/b==b/a){
+    cout<<"GP "<<c*(c/b)<<"\n";
   }
 }
 int main(){
