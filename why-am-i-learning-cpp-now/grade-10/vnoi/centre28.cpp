@@ -1,10 +1,11 @@
-#include <functional>
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <functional>
+#include <algorithm>
 using namespace std;
 #define ll long long 
-#define tname "centre28"
+#define tname "centre"
 #define min(A,B) ((A)<(B)?(A):(B))
 const ll maxN=30005,inff=10000000007;
 ll n,m;
@@ -26,7 +27,7 @@ void ijk(const ll& st,vector<ll>&d,vector<ll>&c){
 				d[v]=d[u]+dv,c[v]=c[u];
 				pq.push({v,d[v]});
 			}else if(d[v]==d[u]+dv){
-				c[v]=min(inff,c[v]+c[u]);
+				c[v]+=c[u];
 			}
 		}
 	}
@@ -45,14 +46,13 @@ int main(){
 	}
 	vector<ll>d1,dn,c1,cn,res;
 	ijk(1,d1,c1);ijk(n,dn,cn);
-	ll len=d1[n];
-	for(ll u=2;u<n;u++){
-		if(d1[u]+dn[u]==len){
-			if(c1[u]*cn[u]!=c1[n]){res.push_back(u);}
-		}else{
-			res.push_back(u);
+	for(ll i=2;i<n;i++){
+		if(d1[i]+dn[i]>d1[n]||(d1[i]+dn[i]==d1[n]&&c1[i]*cn[i]!=c1[n])){
+			res.push_back(i);
 		}
 	}
+	sort(res.begin(),res.end());
 	cout<<res.size()<<"\n";
-	for(const ll& u:res){cout<<u<<"\n";}
+	for(const ll& i:res){cout<<i<<"\n";}
 }
+

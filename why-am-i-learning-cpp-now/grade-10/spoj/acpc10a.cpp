@@ -6,14 +6,14 @@ void parse(){
   ll d=c-b,r=c/b;
   if(d==b-a){
     cout<<"AP "<<c+d<<"\n";
-  }else if(r=b/a){
+  }else if(r==b/a){
     cout<<"GP "<<c*r<<"\n";
   }
 }
 int main(){
   cin.tie(0)->sync_with_stdio(0);
   while(cin>>a>>b>>c){
-    if(!a&&!b&&!c){
+    if(a==0&&b==0&&c==0){
       return 0;
     }else{
       parse();

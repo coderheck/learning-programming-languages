@@ -10,7 +10,7 @@ using namespace std;
 #define min(a,b) ((a)<(b)?(a):(b))
 #define lout(x) \
     cout<<x<<"\n";\
-    cerr<<x<<"\n";
+    // cerr<<x<<"\n";
 #define oout(x) \
     cout<<x<<" ";\
 	cerr<<x<<" ";
@@ -22,7 +22,7 @@ int main(){
 		freopen(tname".out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
-	cin>>n>>q;
+	cin>>n;
 	for(ll i=1;i<=n;i++){cin>>a[i];}
 	res=cur=a[1];
 	for(ll i=2;i<=n;i++){

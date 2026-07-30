@@ -10,7 +10,7 @@ void swap(ll& a,ll& b){
 }
 void make(ll id,ll l,ll r){
   if(l==r){t[id]=a[l];return;}
-  ll m=l+r>>1;
+  ll m=(l+r)>>1;
   make(id*2,l,m);
   make(id*2+1,m+1,r);
   t[id]=max(t[id*2],t[id*2+1]);
@@ -18,17 +18,19 @@ void make(ll id,ll l,ll r){
 ll quer(ll id,ll l,ll r,ll u,ll v){
   if(u>r||v<l){return -fuck;}
   if(u<=l&&v>=r){return t[id];}
-  ll m=l+r>>1;
+  ll m=(l+r)>>1;
   return max(quer(id*2,l,m,u,v),quer(id*2+1,m+1,r,u,v));
 }
 int main(){
   std::cin.tie(0)->sync_with_stdio(0);
   std::cin>>n;
+  if(n<1){return 0;}
   for(ll i=1;i<=n;i++){std::cin>>a[i];}
   make(1,1,n);
   std::cin>>m;
   while(m--){
     std::cin>>x>>y;
+	if(x>n || y>n){continue;}
     if(x>y){swap(x,y);}
     std::cout<<quer(1,1,n,x,y)<<"\n";
   }

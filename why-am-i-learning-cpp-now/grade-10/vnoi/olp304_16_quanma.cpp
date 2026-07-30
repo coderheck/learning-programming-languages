@@ -34,7 +34,7 @@ void bfs(){
 int main(){
 	if(fopen(tname".inp","r")){
 		freopen(tname".inp","r",stdin);
-		// freopen(tname".out","w",stdout);
+		freopen(tname".out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n>>m>>sx>>sy>>tx>>ty;

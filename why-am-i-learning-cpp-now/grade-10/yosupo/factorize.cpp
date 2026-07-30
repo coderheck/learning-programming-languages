@@ -1,16 +1,15 @@
 #include <iostream>
 #include <queue>
-#include <stack>
 using namespace std;
 #define ll long long 
 #define tname "factorize"
 ll Q,a,tot;
 queue<ll>q;
 int main(){
-	if(fopen(tname".inp","r")){
-		freopen(tname".inp","r",stdin);
-		// freopen(tname".out","w",stdout);
-	}
+	// if(fopen(tname".inp","r")){
+	// 	freopen(tname".inp","r",stdin);
+	// 	// freopen(tname".out","w",stdout);
+	// }
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>Q;
 	while(Q--){
