@@ -2,7 +2,7 @@
 // #include <ext/pb_ds/tree_policy.hpp> // used with above
 // #include <unordered_map>					// for normal umap
 #include <iostream>
-#include <algorithm>
+#include <vector>
 using namespace std;
 // using namespace __gnu_pbds;
 #define tname "e"
@@ -10,18 +10,17 @@ using namespace std;
 // #define umap unordered_map
 // #define ordered_set tree<ll,null_type,less<ll>,rb_tree_tag,tree_order_statistics_node_update>
 #define ll long long 
-// #define max(a,b) ((a)>(b)?(a):(b))
-// #define min(a,b) ((a)<(b)?(a):(b))
 #define lout(x) \
     cout<<x<<"\n";\
     // cerr<<x<<"\n";
 #define oout(x) \
     cout<<x<<" ";\
 	cerr<<x<<" ";
-const ll maxN=200005,modN=1000000007;
+const ll maxN=200005;
 struct node{
 	ll sum=0,add=0,set=-1;
-}st[maxN*4];
+};
+vector<node>st;
 ll n,m,t,u,v,x,a[maxN];
 void build(ll id,ll l,ll r){
 	if(l==r){st[id].sum=a[l];return;}
@@ -88,6 +87,7 @@ int main(){
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n>>m;
 	for(ll i=1;i<=n;i++){cin>>a[i];}
+	st.resize(n*4+5);
 	build(1,1,n);
 	while(m--){
 		cin>>t>>u>>v;

@@ -9,8 +9,6 @@ using namespace __gnu_pbds;
 // #define umap unordered_map
 #define ordered_set tree<ll,null_type,less<ll>,rb_tree_tag,tree_order_statistics_node_update>
 #define ll long long
-#define max(a,b) ((a)>(b)?(a):(b))
-#define min(a,b) ((a)<(b)?(a):(b))
 #define lout(x) \
     cout<<x<<"\n";\
     // cerr<<x<<"\n";
