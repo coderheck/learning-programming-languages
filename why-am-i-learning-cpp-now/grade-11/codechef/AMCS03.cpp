@@ -3,7 +3,7 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-#define tname "f"
+#define tname "AMCS03"
 #define umap __gnu_pbds::gp_hash_table
 // #define umap unordered_map
 #define ll long long

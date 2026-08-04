@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 using namespace std;
-#define tname "a"
+#define tname "1624"
 #define umap __gnu_pbds::gp_hash_table
 // #define umap unordered_map
 #define ll long long

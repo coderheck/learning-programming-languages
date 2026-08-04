@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 // using namespace __gnu_pbds;
-#define tname "d"
+#define tname "2206"
 // #define umap gp_hash_table
 // #define umap unordered_map
 // #define ordered_set tree<ll,null_type,less<ll>,rb_tree_tag,tree_order_statistics_node_update>

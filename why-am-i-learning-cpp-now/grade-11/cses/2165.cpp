@@ -2,7 +2,7 @@
 // #include <unordered_map>					// for normal umap
 #include <iostream>
 using namespace std;
-#define tname "b"
+#define tname "2165"
 #define umap __gnu_pbds::gp_hash_table
 // #define umap unordered_map
 #define ll long long
@@ -14,8 +14,14 @@ using namespace std;
 #define oout(x) \
     cout<<x<<" ";\
 	cerr<<x<<" ";
-const ll maxN=200005,inff=1LL<<62;
+const ll maxN=16,inff=1LL<<62;
 ll n,res=0;
+void gay(ll n,ll lt,ll rt,ll md){
+	if(n==0){return;}
+	gay(n-1,lt,md,rt);
+	lout(lt<<" "<<rt);
+	gay(n-1,md,rt,lt);
+}
 int main(){
 	if(fopen(tname".inp","r")){
 		freopen(tname".inp","r",stdin);
@@ -23,12 +29,6 @@ int main(){
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n;
-	ll l=1,r=n*n,m,be;
-	while(l<=r){
-		m=(l+r)>>1;
-		be=0;
-		for(ll i=1;i<=n;i++){be+=min(n,m/i);}
-		if(be>=((n*n+1)>>1)){res=m;r=m-1;}else{l=m+1;}
-	}
-	lout(res);
+	lout((1LL<<n)-1);
+	gay(n,1,3,2);
 }
