@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 using namespace std;
 #define ll long long 
 #define tname "staticrmq"
-#define min(a,b) ((a)<(b)?(a):(b))
-#define max(a,b) ((a)>(b)?(a):(b))
 #define txp(x) (1<<(x)) // lấy 2^x
 const ll maxN=500005,inff=100000000007,maxLog=19; // 2^19 = 524288 >= 5 * 10^5
 ll n,m,a[maxN];
@@ -50,4 +49,3 @@ int main(){
 		cout<<sp.quer(l+1,r)<<"\n";
 	}
 }
-
