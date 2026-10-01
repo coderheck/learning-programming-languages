@@ -16,18 +16,16 @@ using namespace std;
     cout<<x<<" ";\
 	cerr<<x<<" ";
 const ll maxN=200005,inff=1LL<<60;
-int L[maxN],R[maxN],n,q,t,k,x;
+ll L[maxN],R[maxN],n,q,t,k,x;
 struct seg{
-	ll st[maxN*4];
-	void make(int val[],int id=1,int l=1,int r=n){
-		if(l>r){return;}
+	ll st[maxN*4+5];
+	void make(const ll val[],const ll &id=1,const ll &l=1,const ll &r=n){
 		if(l==r){st[id]=val[l];return;}
-		int m=(l+r)>>1;
+		ll m=(l+r)>>1;
 		make(val,id<<1,l,m);make(val,id<<1|1,m+1,r);
 		st[id]=min(st[id<<1],st[id<<1|1]);
 	}
-	void upd(int i,int x,int id=1,int l=1,int r=n){
-		if(l>r){return;}
+	void upd(const ll &i,const ll &x,const ll &id=1,const ll &l=1,const ll &r=n){
 		if(l==r){st[id]=x;return;}
 		int m=(l+r)>>1;
 		if(i<=m){
@@ -37,8 +35,8 @@ struct seg{
 		}
 		st[id]=min(st[id<<1],st[id<<1|1]);
 	}
-	ll fch(int u,int v,int id=1,int l=1,int r=n){
-		if(l>r||u>r||v<l){return inff;}
+	ll fch(const ll &u,const ll &v,const ll &id=1,const ll &l=1,const ll &r=n){
+		if(u>r||v<l){return inff;}
 		if(u<=l&&v>=r){return st[id];}
 		int m=(l+r)>>1;
 		return min(fch(u,v,id<<1,l,m),fch(u,v,id<<1|1,m+1,r));
@@ -51,8 +49,7 @@ int main(){
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n>>q;
-	ll a;
-	for(int i=1;i<=n;i++){
+	for(ll i=1,a;i<=n;i++){
 		cin>>a;
 		L[i]=a-i,R[i]=a+i;
 	}
