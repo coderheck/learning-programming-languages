@@ -31,7 +31,7 @@ using namespace std;
 #define oout(x) \
     cout<<x<<" ";\
 	// cerr<<x<<" ";
-// const ll maxn=200005,inff=1ll<<60;
+// const ll maxn=200005,inff=1ll<<62;
 
 int main(){
 	if(fopen(tname".inp","r")){

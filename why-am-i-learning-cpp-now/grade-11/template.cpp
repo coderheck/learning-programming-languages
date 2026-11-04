@@ -8,7 +8,7 @@ using namespace std;
 #define oout(x) \
     cout<<x<<" ";\
 	// cerr<<x<<" ";
-// const ll maxn=200005,inff=1ll<<60;
+// const ll maxn=200005,inff=1ll<<62;
 
 int main(){
 	if(fopen(tname".inp","r")){
@@ -16,7 +16,7 @@ int main(){
 		// freopen(tname".out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
-
+	
 }
 // yo = gurt
 // your = mom
