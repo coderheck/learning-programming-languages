@@ -18,8 +18,8 @@ int main(){
 	cin.tie(0)->sync_with_stdio(0);
 	
 }
-// yo = gurt
-// your = mom
-// seg = tree
-// code = fire
+//     yo = gurt
+//   your = mom
+//    seg = tree
+//   code = blocks
 // status = AC
