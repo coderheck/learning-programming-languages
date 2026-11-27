@@ -10,19 +10,22 @@ using namespace std;
 #define oout(x) \
     cout<<x<<" ";\
 	// cerr<<x<<" ";
-const ll maxn=100005;
 ll n,a,res=0;
 umap<ll,ll>cnt;
 int main(){
 	if(fopen(tname".inp","r")){
 		freopen(tname".inp","r",stdin);
-		// freopen(tname".out","w",stdout);
+		freopen(tname".out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
 	cin>>n;
 	for(ll i=1,a;i<=n;i++){cin>>a;cnt[a]++;}
 	for(umap<ll,ll>::iterator i=cnt.begin();i!=cnt.end();i++){
-		if(i->first!=i->second){res+=i->second;}
+		if(i->second>i->first){
+			res+=i->second-i->first;
+		}else if(i->second<i->first){
+			res+=i->second;
+		}
 	}
 	lout(res);
 }

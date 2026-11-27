@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cstdio>
 #include <iostream>
 #include <string>
 // #include <unordered_map>
@@ -15,12 +17,21 @@ using namespace __gnu_pbds;
     cout<<x<<" ";\
 	// cerr<<x<<" ";
 // const ll maxn=200005,inff=1ll<<62;
+__extension__ typedef __int128 i128;
 string s;
 ll n,a;
 umap<string,ll>cnt;
+i128 res;
+void print128(){
+	if(res==0){lout("0");return;}
+	string out;
+	while(res){out.push_back(char('0'+res%10));res/=10;}
+	reverse(out.begin(),out.end());
+	lout(out);
+}
 int main(){
 	if(fopen(tname".inp","r")){
-		freopen(tname".inp","r",stdin);
+		// freopen(tname".inp","r",stdin);
 		// freopen(tname".out","w",stdout);
 	}
 	cin.tie(0)->sync_with_stdio(0);
@@ -33,11 +44,16 @@ int main(){
 			cnt[s]=a;
 		}
 	}
-	ll res=0;
+	// ll res=0;
+	// for(umap<string,ll>::iterator i=cnt.begin();i!=cnt.end();i++){
+	// 	res+=i->second;
+	// }
+	// lout(cnt.size()<<" "<<res);
 	for(umap<string,ll>::iterator i=cnt.begin();i!=cnt.end();i++){
 		res+=i->second;
 	}
-	lout(cnt.size()<<" "<<res);
+	oout(cnt.size());
+	print128();
 }
 // yo = gurt
 // your = mom
